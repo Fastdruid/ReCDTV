@@ -3,8 +3,7 @@ ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.
 
 ## Status
 
-Barely started. Nothing exists yet beyond a board layout and I've not uploaded anything yet. :) 
-At worst this will be a bare board layout for other people to create new designs that will fit within a CDTV chassis.
+WIP. Almost all the chips are in the correct (ish) locations with their pins all correctly on the right nets.
 
 ## Summary
 This came about because I bought a CDTV that had been utterly destroyed by a ham fisted monkey who for unknown reasons appeared to have attempted to remove the Paula socket with a blowtorch and a chisel. 
@@ -15,9 +14,16 @@ You will almost certainly need a CDTV to build this, unfortunately the drive in 
 
 I have attempted to use "new" parts where possible however some are NLA or were Commodore only parts. You will have to harvest them from an Amiga or CDTV.
 
+## Known Schematic errors
+
+There are some differences noted between the schematics and the actual board. These are noted here. 
+
+1) RP1 and RP2 are the wrong way round on the schematics/board.
+2) RP23 & RP24 don't exist on the Rev 2.2.1 board (although there appear to be locations for them).
+
 ## Differences from Original
 
-V1 is intended to be a functional "like for like" copy with only two notible changes, the first being support for VBB and 8375 (2Mb) Agnus and the second to be able to add the extra memory. 
+V1 is intended to be a functional "like for like" copy. 
 
 All of the non-Commodore/Amiga unique parts have been sourced as far as they can. 
 
