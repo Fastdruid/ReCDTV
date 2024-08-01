@@ -45,7 +45,7 @@ I/O is in relation to the CDTV, U means Unknown, NC is not connected
 26. HRD [O]
 27. STEN [I] (CD-Status bit 2?)
 28. CMD [U] (CD-Status / Data enable?)
-29. N/C
+29. N/C (Note that this is however connected at the drive)
 30. GND
 31. DB7 [I/O] (Data Bit 7)
 32. GND
