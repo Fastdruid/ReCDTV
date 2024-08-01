@@ -15,39 +15,50 @@ The CDTV CDROM interface is a modified Panasonic MKE (Matsushita Kotobuki Electr
 Signal names are as given in the CDTV Service Manual. Where signals are given on the pin and wire they're both used.  
 
 I/O is in relation to the CDTV, U means Unknown, NC is not connected
-Pins 2,7,8,10,12,18,24,30,32,36 & 42 are all GND and have been ommited for brevity. 
+
 
 1. _*RESET*_ [O]
+2. GND
 3. EFFK [I] (EFM frame clock ouput duty = 50%)
 4. SCCK [O]
 5. SBCP [I]
 6. SCOR [I] (Subcode sunc output S0+s1)
+7. GND
+8. GND
 9. C16M [I?] (16MHz DAC Clock)
+10. GND
 11. XAEN [U]
+12. GND
 13. AEMP / EMPHASIS [I] (Audio Deemphasis)
 14. DATA / D0 [I] (CD Audio Data)
 15. LRCLK / LRCK [I] (Audio Left/Right Clock)
 16. BCLK / DSCK [I] (CD Audio Clock)
 17. Mute [NC]
+18. GND
 19. INAC [I] (Indicator Power/Status)
 20. STCH [U] (CD-Status bit 0?)
 21. ENABLE [U] (CD-Data enable?)
 22. DRQ [U]
 23. HWR [O] (Host Write Request? - Signals to the drive that command bursts are to be sent)
+24. GND
 25. DTEN [U] (CD-Status bit 1?)
 26. HRD [O]
 27. STEN [I] (CD-Status bit 2?)
 28. CMD [U] (CD-Status / Data enable?)
 29. N/C
+30. GND
 31. DB7 [I/O] (Data Bit 7)
+32. GND
 33. DB6 [I/O] (Data Bit 6)
 34. DB5 [I/O] (Data Bit 5)
 35. DB4 [I/O] (Data Bit 4)
+36. GND
 37. DB3 [I/O] (Data Bit 3)
 38. DB2 [I/O] (Data Bit 2)
 39. DB1 [I/O] (Data Bit 1)
 40. DB0 [I/O] (Data Bit 0)
-41. GND via 4.7k resistor. 
+41. GND via 4.7k resistor.
+42. GND
 
 ## Pin Description
 
