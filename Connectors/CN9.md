@@ -38,7 +38,7 @@ I/O is in relation to the CDTV, U means Unknown, NC is not connected
 19. INAC [I] (Indicator Power/Status)
 20. STCH [U] (CD-Status bit 0?)
 21. ENABLE [U] (CD-Data enable?)
-22. DRQ [U] (Data ReQuest??)
+22. DRQ / WAIT [U] (Data ReQuest?? )
 23. HWR [O] (Host Write Request? - Signals to the drive that command bursts are to be sent)
 24. GND
 25. DTEN [U] (CD-Status bit 1?)
@@ -87,18 +87,21 @@ Producers and engineers started turning off the emphasis switches. Converters we
 ```
  
 ### 14 DATA 
- Feeds into LC7883M D/A Converter pin 6  
  Digital Audio Data using I²S
+ Feeds into LC7883M D/A Converter pin 6  
  Bit serial from MSB  
 ### 15 LRCLK
+ Digital Audio Data using I²S
  Feeds into LC7883M D/A Converter pin 7  
  LR CLK (Left/Right?)    
  LRCK = "H" CH1    
  LRCK = "L" CH2    
 ### 16 BCLK
+ Digital Audio Data using I²S
  Feeds into LC7883M D/A Converter pin 5  
  Bit CLK   
 ### 17 MUTE (N/C)
+ Mute Audio... Not used
 ### 19 INAC
  Indicator LED. 
 
@@ -107,7 +110,8 @@ Producers and engineers started turning off the emphasis switches. Converters we
 ### 21 ENABLE
 ```To send a command the host computer sets the ENABLE and CMD pins to LOW and loads one or more command bites into the COMIN register (of the LC8951)```
 
-### 22 DRQ
+### 22 DRQ (WAIT)
+
 ### 23 HWR
  Connects to the LC8951 on the drive.   
  
@@ -116,7 +120,7 @@ Producers and engineers started turning off the emphasis switches. Converters we
  CD-Status bit 1
  Informs the host that data transfer will start.
 ### 26 HRD
- If the read signals from the host exceed the LC8951 maximum data rate (about 2.3MB/s), the LC8951 sets the WAIT (????) pin to LOW. The host must then hold HRD low to delay the read until the WAIT pin goes HIGH. 
+ If the read signals from the host exceed the LC8951 maximum data rate (about 2.3MB/s), the LC8951 sets the DRQ (WAIT) pin to LOW. The host must then hold HRD low to delay the read until the DRQ (WAIT) pin goes HIGH. 
 ### 27 STEN
  ```The controller and the host perform handshaking using signals at the STEN pin```
  
