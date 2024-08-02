@@ -251,7 +251,11 @@ This doesn't deserve its own page but needed somewhere for it.
 
 ## Description 
 
-Commodore P/N 252616-03 HEADER ASSY 3 PIN 2 PITCH
+Commodore P/N 252616-03 HEADER ASSY 3 PIN 2 PITCH  
+I believe these to be using Molex 51004 series connectors, the 53014, 53015 and 53025 are the corresponding matching headers, this is therefore presumed to be a Molex 53014-0310, the right angle version (used on the CDROM) is probably a Molex 53015-0310 (53025 is a "through board" type connector).
+A Molex 51004-0300 would plug into it which uses 50011-8000 crimp terminals.  
+
+Unfortunately all except the 50011-8000 crimp terminals are obsolete and NLA
 
 ## Pinout [I/O] (Guessed description)
 
