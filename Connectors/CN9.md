@@ -245,7 +245,23 @@ The CDTV sends two channel digital audio from the CDROM to LC7883M D/A, this req
 2. Word select (WS);[1] a.k.a. left-right clock (**LRCLK**)[3] or frame sync (FS).[4]; 0 = Left channel, 1 = Right channel[1]
 3. Serial data (SD),[1] a.k.a. **DATA**, SDATA, SDIN, SDOUT, DACDAT, ADCDAT[3]
 
-## Sources
+# CN26
+
+This doesn't deserve its own page but needed somewhere for it. 
+
+## Description 
+
+Commodore P/N 252616-03 HEADER ASSY 3 PIN 2 PITCH
+
+## Pinout [I/O] (Guessed description)
+
+While this is labled in the schematics as "CDROM INTERFACE CD AUDIO" I don't think this carries audio and instead think this is I²C to allow control of playing Audio CD's outside of software control by the Amiga/CDTV. 
+
+1. SCK [U] 
+2. SDATA [U]
+3. GND [U]
+
+# Sources
 
 1. CDTV Service Manual
 2. https://en.wikipedia.org/wiki/Panasonic_CD_interface
