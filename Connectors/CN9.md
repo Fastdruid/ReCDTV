@@ -45,20 +45,20 @@ I/O is in relation to the CDTV, U means Unknown, NC is not connected
 26. HRD [O] (Host Read Request? )
 27. STEN [I] (CD-Status bit 2?)
 28. CMD [U] (CD-Status / Data enable?)
-29. N/C (Note that this is however connected at the drive)
-30. GND
-31. DB7 [I/O] (Data Bit 7)
-32. GND
-33. DB6 [I/O] (Data Bit 6)
-34. DB5 [I/O] (Data Bit 5)
-35. DB4 [I/O] (Data Bit 4)
-36. GND
-37. DB3 [I/O] (Data Bit 3)
-38. DB2 [I/O] (Data Bit 2)
-39. DB1 [I/O] (Data Bit 1)
-40. DB0 [I/O] (Data Bit 0)
-41. GND via 4.7k resistor.
-42. GND
+29. N/C (Note that this is however connected to EOP - "End-of-Process" at the drive)
+31. GND
+32. DB7 [I/O] (Data Bit 7)
+33. GND
+34. DB6 [I/O] (Data Bit 6)
+35. DB5 [I/O] (Data Bit 5)
+36. DB4 [I/O] (Data Bit 4)
+37. GND
+38. DB3 [I/O] (Data Bit 3)
+39. DB2 [I/O] (Data Bit 2)
+40. DB1 [I/O] (Data Bit 1)
+41. DB0 [I/O] (Data Bit 0)
+42. GND via 4.7k resistor.
+43. GND
 
 ## Pin Description
 
