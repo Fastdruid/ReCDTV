@@ -100,6 +100,8 @@ Producers and engineers started turning off the emphasis switches. Converters we
  Bit CLK   
 ### 17 MUTE (N/C)
 ### 19 INAC
+ Indicator LED. 
+
 ### 20 STCH
  CD-Status bit 0
 ### 21 ENABLE
