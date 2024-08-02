@@ -88,7 +88,7 @@ Producers and engineers started turning off the emphasis switches. Converters we
  
 ### 14 DATA 
  Feeds into LC7883M D/A Converter pin 6  
- Digital Audio Data  
+ Digital Audio Data using I²S
  Bit serial from MSB  
 ### 15 LRCLK
  Feeds into LC7883M D/A Converter pin 7  
@@ -238,6 +238,12 @@ don't know the state of the drive.)
 17      Illegal request from host
 ```
 
+## Digital Audio
+
+The CDTV sends two channel digital audio from the CDROM to LC7883M D/A, this requires three connections.
+1. Serial clock (SCK),[1] a.k.a. bit clock (**BCLK**).[3]
+2. Word select (WS);[1] a.k.a. left-right clock (**LRCLK**)[3] or frame sync (FS).[4]; 0 = Left channel, 1 = Right channel[1]
+3. Serial data (SD),[1] a.k.a. **DATA**, SDATA, SDIN, SDOUT, DACDAT, ADCDAT[3]
 
 ## Sources
 
@@ -246,6 +252,7 @@ don't know the state of the drive.)
 3. https://www.chiark.greenend.org.uk/~theom/electronics/panasoniccd.html
 4. Sanyo LC7883 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
 5. Sanyo LC8951 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
+6. https://en.wikipedia.org/wiki/I%C2%B2S
 
 
 
