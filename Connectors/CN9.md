@@ -38,11 +38,11 @@ I/O is in relation to the CDTV, U means Unknown, NC is not connected
 19. INAC [I] (Indicator Power/Status)
 20. STCH [U] (CD-Status bit 0?)
 21. ENABLE [U] (CD-Data enable?)
-22. DRQ [U]
+22. DRQ [U] (Data ReQuest??)
 23. HWR [O] (Host Write Request? - Signals to the drive that command bursts are to be sent)
 24. GND
 25. DTEN [U] (CD-Status bit 1?)
-26. HRD [O]
+26. HRD [O] (Host Read Request? )
 27. STEN [I] (CD-Status bit 2?)
 28. CMD [U] (CD-Status / Data enable?)
 29. N/C (Note that this is however connected at the drive)
