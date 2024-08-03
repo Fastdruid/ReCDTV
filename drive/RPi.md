@@ -3,12 +3,12 @@
 ## Pins
 
 ### Serial Data
-#### CDTV Data Signals
-So this is for the Subcode - https://en.wikipedia.org/wiki/Compact_Disc_subcode
-EFFK [I] (EFM Frame clock output duty = 50%)
-SCCK [O] (Shift clock for serial subcode data output)
-SBCP [I] (Subcode Pch output Pch~Wch serial data output)
-SCOR [I] (Subcode sync output S0+s1)
+#### CDTV Data Signals 
+So this is for the Subcode - https://en.wikipedia.org/wiki/Compact_Disc_subcode  
+EFFK [I] (EFM Frame clock output duty = 50%)  
+SCCK [O] (Shift clock for serial subcode data output)  
+SBCP [I] (Subcode Pch output Pch~Wch serial data output)  
+SCOR [I] (Subcode sync output S0+s1)  
 
 
 
