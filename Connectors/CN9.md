@@ -16,13 +16,12 @@ Signal names are as given in the CDTV Service Manual. Where signals are given on
 
 I/O is in relation to the CDTV, U means Unknown, NC is not connected
 
-
 1. _*RESET*_ [O]
 2. GND
-3. EFFK [I] (EFM frame clock ouput duty = 50%)
-4. SCCK [O]
-5. SBCP [I]
-6. SCOR [I] (Subcode sunc output S0+s1)
+3. EFFK [I] (EFM Frame clock output duty = 50%)
+4. SCCK [O] (Shift clock for serial subcode data output)
+5. SBCP [I] (Subcode Pch output Pch~Wch serial data output)
+6. SCOR [I] (Subcode sync output S0+s1)
 7. GND
 8. GND
 9. C16M [I?] (16MHz DAC Clock)
@@ -66,8 +65,17 @@ I/O is in relation to the CDTV, U means Unknown, NC is not connected
  Reset?   
  NAND of IOR,IOW -> NOR of IFRST (InterFace ReSeT)  
 ### 3 EFFK
+This is for the Subcode or subchannel data
+EFM Frame clock output duty = 50%
+### 4 SCCK
+This is for the Subcode or subchannel data
+Shift clock for serial subcode data output
 ### 5 SBCP
+This is for the Subcode or subchannel data
+Subcode Pch output Pch~Wch serial data output  
 ### 6 SCOR
+This is for the Subcode or subchannel data
+Subcode sync output S0+s1  
 ### 9 C16M
  Feeds into LC7883M D/A Converter pin 24  
  Feeds from LC7883M D/A Converter pin 25 via 100k resistor  
@@ -279,7 +287,7 @@ While this is labled in the schematics as "CDROM INTERFACE CD AUDIO" I don't thi
 4. Sanyo LC7883 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
 5. Sanyo LC8951 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
 6. https://en.wikipedia.org/wiki/I%C2%B2S
-
+7. https://en.wikipedia.org/wiki/Compact_Disc_subcode
 
 
 
