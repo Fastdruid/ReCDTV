@@ -28,6 +28,8 @@ There are some differences noted between the schematics and the actual board. Th
 6) U12 (Gary) Pin 21 (*ROMEN) is connected to pin 9 on U23 (and ground to pin 8) while the schematic shows it as being connected to Pin 6
 7) U38 pin 8 is not connected to U63 pin 13 (this appears to be one of the fixed on Rev 2.3) - I've not yet validated what is actually connected.
 8) U38 pin 1 is not connected to U63 pin 12 (this appears to be one of the fixed on Rev 2.3) - I've not yet validated what is actually connected.
+9) DMAC CFGOUT is connected to ground
+10) Only one of two CPU VCC are connected! 
 
 ## Differences from Original
 
