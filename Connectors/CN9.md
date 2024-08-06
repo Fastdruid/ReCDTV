@@ -10,13 +10,17 @@ Note that 42 pins are listed, this is because two pins (41 & 42) are not used/co
 
 The CDTV CDROM interface is a modified Panasonic MKE (Matsushita Kotobuki Electronics), where this differs from the "Sound Blaster" PC drives is that the CDTV interface also bundles CD audio into the connector. 
 
+## General Notes
+
+A lot of the A570 stuff is somewhat dubious as I can hardly read the schematics! Take pin numbers with a pinch of salt. 
+
 ## Pinout [I/O] (Guessed description)
 
-Signal names are as given in the CDTV Service Manual. Where signals are given on the pin and wire they're both used.  
+Signal names are as given in the CDTV Service Manual. Where signals are given on the pin and wire they're both noted.  
 
-I/O is in relation to the CDTV, U means Unknown, NC is not connected
+I/O is in relation to the CDTV, so O is from CDTV to drive, I is Drive to CDTV, U means Unknown, B is bidirectional, NC is not connected
 
-1. _*RESET*_ [O]
+1. CDRST [O]
 2. GND
 3. EFFK [I] (EFM Frame clock output duty = 50%)
 4. SCCK [O] (Shift clock for serial subcode data output)
@@ -24,64 +28,69 @@ I/O is in relation to the CDTV, U means Unknown, NC is not connected
 6. SCOR [I] (Subcode sync output S0+s1)
 7. GND
 8. GND
-9. C16M [I?] (16MHz DAC Clock)
+9. C16M [I] (16MHz DAC and LC8951 Clock)
 10. GND
-11. XAEN [U]
+11. XAEN [I]
 12. GND
 13. AEMP / EMPHASIS [I] (Audio Deemphasis)
 14. DATA / D0 [I] (CD Audio Data)
 15. LRCLK / LRCK [I] (Audio Left/Right Clock)
 16. BCLK / DSCK [I] (CD Audio Clock)
-17. Mute [NC]
+17. Mute [NC] (Mute signal).
 18. GND
 19. INAC [I] (Indicator Power/Status)
-20. STCH [U] (CD-Status bit 0?)
-21. ENABLE [U] (CD-Data enable?)
+20. STCH [I] (CD-Status bit 0?)
+21. ENABLE [O] (CD-Data enable?)
 22. DRQ / WAIT [U] (Data ReQuest?? )
 23. HWR [O] (Host Write Request? - Signals to the drive that command bursts are to be sent)
 24. GND
-25. DTEN [U] (CD-Status bit 1?)
+25. DTEN [I] (CD-Status bit 1?)
 26. HRD [O] (Host Read Request? )
 27. STEN [I] (CD-Status bit 2?)
-28. CMD [U] (CD-Status / Data enable?)
-29. N/C (Note that this is however connected to EOP - "End-of-Process" at the drive)
+28. CMD [O] (CD-Status / Data enable?)
+29. EOP [NC - I] (End-of-Process)
 31. GND
-32. DB7 [I/O] (Data Bit 7)
+32. DB7 [B] (Data Bit 7)
 33. GND
-34. DB6 [I/O] (Data Bit 6)
-35. DB5 [I/O] (Data Bit 5)
-36. DB4 [I/O] (Data Bit 4)
+34. DB6 [B] (Data Bit 6)
+35. DB5 [B] (Data Bit 5)
+36. DB4 [B] (Data Bit 4)
 37. GND
-38. DB3 [I/O] (Data Bit 3)
-39. DB2 [I/O] (Data Bit 2)
-40. DB1 [I/O] (Data Bit 1)
-41. DB0 [I/O] (Data Bit 0)
+38. DB3 [B] (Data Bit 3)
+39. DB2 [B] (Data Bit 2)
+40. DB1 [B] (Data Bit 1)
+41. DB0 [B] (Data Bit 0)
 42. GND via 4.7k resistor.
 43. GND
 
 ## Pin Description
 
-### 1 (TBD)
+### 1 (CDRST) - Pin 3 on A570
  Reset?   
  NAND of IOR,IOW -> NOR of IFRST (InterFace ReSeT)  
-### 3 EFFK
+### 3 EFFK - Pin 5 on A570
 This is for the Subcode or subchannel data
 EFM Frame clock output duty = 50%
-### 4 SCCK
+### 4 SCCK - Pin 6 on A570
 This is for the Subcode or subchannel data
 Shift clock for serial subcode data output
-### 5 SBCP
+### 5 SBCP - Pin 7 on A570
 This is for the Subcode or subchannel data
 Subcode Pch output Pch~Wch serial data output  
-### 6 SCOR
+### 6 SCOR - Pin 8 on A570
 This is for the Subcode or subchannel data
 Subcode sync output S0+s1  
-### 9 C16M
+Connected via a 74LS244 to the Controller chip 
+
+### 9 C16M - Pin 11 on A570
  Feeds into LC7883M D/A Converter pin 24  
  Feeds from LC7883M D/A Converter pin 25 via 100k resistor  
  16MHz clock.
-### 11 XAEN
-### 13 AEMP
+### 11 XAEN  - Pin 13 on A570
+My suspicion is that this is related to the XTA "AEN" signal which (and this took a lot of hunting down) is defined as follows:  
+```Now the DMA controller has control of the bus, it presents the memory address on the address bus and asserts AEN, which signals to IO devices not involved in the DMA transfer to disregard the bus cycle```
+
+### 13 AEMP - Pin 15 on A570
  Feeds into LC7883M D/A Converter pin 15  
  de-emphasis set   
  So, this basically harks back to the early days of CD   
@@ -94,48 +103,66 @@ This emphasis feature was the biggest reason why different CD players sounded di
 Producers and engineers started turning off the emphasis switches. Converters were getting better so there was less converter noise, and the use of de-emphasis circuits was eliminated.
 ```
  
-### 14 DATA 
+### 14 DATA - Pin 16 on A570
  Digital Audio Data using I²S
  Feeds into LC7883M D/A Converter pin 6  
- Bit serial from MSB  
-### 15 LRCLK
+ Bit serial from MSB
+### 15 LRCLK - Pin 17 on A570
  Digital Audio Data using I²S
  Feeds into LC7883M D/A Converter pin 7  
  LR CLK (Left/Right?)    
  LRCK = "H" CH1    
  LRCK = "L" CH2    
-### 16 BCLK
+### 16 BCLK - Pin 19 on A570
  Digital Audio Data using I²S
  Feeds into LC7883M D/A Converter pin 5  
  Bit CLK   
-### 17 MUTE (N/C)
- Mute Audio... Not used
+### 17 MUTE (N/C) - Pin 19 A570 (CDMUTE)
+  Mute Audio... Not used on the CDTV but is connected on the A570 where its from the drive. 
+  I had presumed this to be a signal from the CDTV to the drive *TO* mute audio but now I believe it to be the other way round, a signal that audio has been muted. 
+   
 ### 19 INAC
  Indicator LED. 
 
 ### 20 STCH
  CD-Status bit 0
+ I'm not entirely sure what this does. 
+ 
 ### 21 ENABLE
 ```To send a command the host computer sets the ENABLE and CMD pins to LOW and loads one or more command bites into the COMIN register (of the LC8951)```
 
 ### 22 DRQ (WAIT)
+According to the datasheet the function depends on the state of the SELDRQ input, one of the two options
+1. When SELDRQ is HIGH (that is, during software transfer mode), the LS8950 sets the WAIT output to LOW to signal the host to suspend the data transfer. WAIT is held high while DTEN is HIGH, and while the LC8950 is not transferring data to the host.
+2. When SELDRQ is LOW (that is, during DMA transfer mode), WAIT functions as a DRQ (Data Request) output to the host computer. WAIT remains LOW while DTEN is HIGH, and while the LC8951 is not transfering data to the host.
+
+It is presumed that the CDTV uses option 2 both from the name as well as the use of the DMAC and based on the design of the A570 where SELDRQ is held LOW via a 6.8K resistor to ground.
 
 ### 23 HWR
  Connects to the LC8951 on the drive.   
  
  ``` The host interface also has a built in 8-byte FIFO command buffer to reciev instructions from the host computer. When the host signals the LC8951 using the HWR pin, command bursts of up to eight bytes in length can be written to the the buffer. When the host writes to the command buffer the LC8950 sends a command interrupt to the controller. Note, however, that the LC8951 itself does not interpret commands written to the command buffer.```
+
 ### 25 DTEN
  CD-Status bit 1
  Informs the host that data transfer will start.
+ This output is set to LOW to signal the host computer that data is ready to be transfered.
 ### 26 HRD
  If the read signals from the host exceed the LC8951 maximum data rate (about 2.3MB/s), the LC8951 sets the DRQ (WAIT) pin to LOW. The host must then hold HRD low to delay the read until the DRQ (WAIT) pin goes HIGH. 
+
 ### 27 STEN
  ```The controller and the host perform handshaking using signals at the STEN pin```
+ This output is set to LOW to signal the host computer that the status byte is ready to be read out.
  
 ### 28 CMD
  CD-Status / Data Enable    
- When the host sees that DTEN is LOW it sets CMD to HIGH instricting the LC8951 to transfer successive bytes.  
+ When the host sees that DTEN is LOW it sets CMD to HIGH instructing the LC8951 to transfer successive bytes.  
 
+### EOP - N/C
+ End-of-Process flag.  
+ The LC8951 sets this flag to LOW on sending the last byte to the host computer using either software or DMA data transfers.  
+ Not used on the CDTV or A570.  
+ 
  
 ### 31,33-35,37-40 - DB7-0
 
@@ -143,7 +170,7 @@ Bidirectional 8 bit data bus.
 This is not only used for transfering data to the "host" (ie the CDTV) but also commands to the controller and data from the controller. 
 
 ## MKE Interface (similar)
-The CDTV uses a modified MKE interface. 
+The CDTV is presumed to use a modified MKE interface. 
 
 1. GND               
 2. CD-Reset                (RESET)
@@ -176,15 +203,15 @@ The CDTV uses a modified MKE interface.
 29. GND              
 30. GND                     
 31. CD-Data 7 (D7)   
-32. CD-Data 6               (D6)
+32. CD-Data 6 (D6)
 33. GND              
-34. CD-Data 5               (D5)
+34. CD-Data 5 (D5)
 35. CD-Data 4 (D4)   
-36. CD-Data 3               (D3)
+36. CD-Data 3 (D3)
 37. GND              
-38. CD-Data 2               (D2)
+38. CD-Data 2 (D2)
 39. CD-Data 1 (D1)   
-40. CD-Data 0               (D0)
+40. CD-Data 0 (D0)
 
 ## Command set (MKE) - CDTV Presumed similar
 ```
@@ -279,15 +306,21 @@ While this is labled in the schematics as "CDROM INTERFACE CD AUDIO" I don't thi
 2. SDATA [U]
 3. GND [U]
 
+These connect to SBT and SBI on the MN188161 which are described as 
+1. SBT - Sync. Serial interface clock I/O pin.
+2. SMI - Sync. Serial interface data input pin. 
+
 # Sources
 
 1. CDTV Service Manual
-2. https://en.wikipedia.org/wiki/Panasonic_CD_interface
-3. https://www.chiark.greenend.org.uk/~theom/electronics/panasoniccd.html
-4. Sanyo LC7883 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
-5. Sanyo LC8951 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
-6. https://en.wikipedia.org/wiki/I%C2%B2S
-7. https://en.wikipedia.org/wiki/Compact_Disc_subcode
+2. A570 Schematics (badly scanned and barely readable, if anyone has better copy please let me know!)
+3. https://en.wikipedia.org/wiki/Panasonic_CD_interface
+4. https://www.chiark.greenend.org.uk/~theom/electronics/panasoniccd.html
+5. Sanyo LC7883 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
+6. Sanyo LC8951 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
+7. https://en.wikipedia.org/wiki/I%C2%B2S
+8. https://en.wikipedia.org/wiki/Compact_Disc_subcode
+9. https://www.lo-tech.co.uk/tag/xt-ide/
 
 
 
