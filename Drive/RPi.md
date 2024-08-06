@@ -2,7 +2,7 @@
 
 ## Pins
 
-IN order of GPIO not pin number 
+In order of GPIO not pin number 
 
 | RPi Pin | Name | Type | Alt | CDTV Pin | Name |
 | --- | --- | --- | --- | --- | --- |
