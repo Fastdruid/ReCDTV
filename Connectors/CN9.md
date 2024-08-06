@@ -8,11 +8,11 @@ Commodore P/N 903345-20 HEADER ASSY 40 PIN 2.54 PITCH
 
 Note that 42 pins are listed, this is because two pins (41 & 42) are not used/connected. 
 
-The CDTV CDROM interface is a modified Panasonic MKE (Matsushita Kotobuki Electronics), where this differs from the "Sound Blaster" PC drives is that the CDTV interface also bundles CD audio into the connector. 
+The CDTV CDROM interface is reportedly a modified Panasonic MKE (Matsushita Kotobuki Electronics) interface, where this differs from the "Sound Blaster" PC drives is that the CDTV interface also bundles CD audio into the connector. This also differs from the A570. 
 
 ## General Notes
 
-A lot of the A570 stuff is somewhat dubious as I can hardly read the schematics! Take pin numbers with a pinch of salt. 
+A lot of the A570 stuff is somewhat dubious as I can hardly read the schematics! Take any pin numbers with a pinch of salt. 
 
 ## Pinout [I/O] (Guessed description)
 
@@ -41,7 +41,7 @@ I/O is in relation to the CDTV, so O is from CDTV to drive, I is Drive to CDTV, 
 19. INAC [I] (Indicator Power/Status)
 20. STCH [I] (CD-Status bit 0?)
 21. ENABLE [O] (CD-Data enable?)
-22. DRQ / WAIT [U] (Data ReQuest?? )
+22. DRQ / WAIT [I] (Data ReQuest?? )
 23. HWR [O] (Host Write Request? - Signals to the drive that command bursts are to be sent)
 24. GND
 25. DTEN [I] (CD-Status bit 1?)
@@ -69,6 +69,7 @@ I/O is in relation to the CDTV, so O is from CDTV to drive, I is Drive to CDTV, 
  Reset?   
  NAND of IOR,IOW -> NOR of IFRST (InterFace ReSeT)  
 ### 3 EFFK - Pin 5 on A570
+This is connected to the MN188161 Microprocessor.
 This is for the Subcode or subchannel data
 EFM Frame clock output duty = 50%
 ### 4 SCCK - Pin 6 on A570
@@ -87,13 +88,14 @@ Connected via a 74LS244 to the Controller chip
  Feeds from LC7883M D/A Converter pin 25 via 100k resistor  
  16MHz clock.
 ### 11 XAEN  - Pin 13 on A570
+This is connected to the MN188161 Microprocessor pin 45 (PI4)
 My suspicion is that this is related to the XTA "AEN" signal which (and this took a lot of hunting down) is defined as follows:  
 ```Now the DMA controller has control of the bus, it presents the memory address on the address bus and asserts AEN, which signals to IO devices not involved in the DMA transfer to disregard the bus cycle```
 
 This may not be correct however, my secondary guess is it's "eXternal Audio ENable", ie U62 has requested music be played from a CD. 
 
 ### 13 AEMP - Pin 15 on A570
- Feeds into LC7883M D/A Converter pin 15  
+ Feeds into LC7883M D/A Converter pin 15 from the M50422P CD Digital DSP pin 3
  de-emphasis set   
  So, this basically harks back to the early days of CD   
 
@@ -106,8 +108,10 @@ Producers and engineers started turning off the emphasis switches. Converters we
 ```
  
 ### 14 DATA - Pin 16 on A570
+
+pin 67
  Digital Audio Data using I²S
- Feeds into LC7883M D/A Converter pin 6  
+ Feeds into LC7883M D/A Converter pin 6 from the M50422P CD Digital DSP pin 67. Also connected to LC8951
  Bit serial from MSB
 ### 15 LRCLK - Pin 17 on A570
  Digital Audio Data using I²S
@@ -127,7 +131,7 @@ Producers and engineers started turning off the emphasis switches. Converters we
  Indicator LED. 
 
 ### 20 STCH
- CD-Status bit 0
+ This is connected to the MN188161 Microprocessor. From the MKE pinout it's suggested this is CD-Status bit 0
  I'm not entirely sure what this does. 
  
 ### 21 *ENABLE
