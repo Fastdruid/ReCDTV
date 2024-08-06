@@ -90,6 +90,8 @@ Connected via a 74LS244 to the Controller chip
 My suspicion is that this is related to the XTA "AEN" signal which (and this took a lot of hunting down) is defined as follows:  
 ```Now the DMA controller has control of the bus, it presents the memory address on the address bus and asserts AEN, which signals to IO devices not involved in the DMA transfer to disregard the bus cycle```
 
+This may not be correct however, my secondary guess is it's "eXternal Audio ENable", ie U62 has requested music be played from a CD. 
+
 ### 13 AEMP - Pin 15 on A570
  Feeds into LC7883M D/A Converter pin 15  
  de-emphasis set   
@@ -128,7 +130,7 @@ Producers and engineers started turning off the emphasis switches. Converters we
  CD-Status bit 0
  I'm not entirely sure what this does. 
  
-### 21 ENABLE
+### 21 *ENABLE
 ```To send a command the host computer sets the ENABLE and CMD pins to LOW and loads one or more command bites into the COMIN register (of the LC8951)```
 
 ### 22 DRQ (WAIT)
@@ -138,24 +140,25 @@ According to the datasheet the function depends on the state of the SELDRQ input
 
 It is presumed that the CDTV uses option 2 both from the name as well as the use of the DMAC and based on the design of the A570 where SELDRQ is held LOW via a 6.8K resistor to ground.
 
-### 23 HWR
- Connects to the LC8951 on the drive.   
- 
- ``` The host interface also has a built in 8-byte FIFO command buffer to reciev instructions from the host computer. When the host signals the LC8951 using the HWR pin, command bursts of up to eight bytes in length can be written to the the buffer. When the host writes to the command buffer the LC8950 sends a command interrupt to the controller. Note, however, that the LC8951 itself does not interpret commands written to the command buffer.```
+### 23 *HWR
+ Connects to the LC8951 on the drive - Host Data Write Input (why not Host Write Ready?)
+ ``` The host interface also has a built in 8-byte FIFO command buffer to recieve instructions from the host computer. When the host signals the LC8951 using the HWR pin, command bursts of up to eight bytes in length can be written to the the buffer. When the host writes to the command buffer the LC8950 sends a command interrupt to the controller. Note, however, that the LC8951 itself does not interpret commands written to the command buffer.```
 
 ### 25 DTEN
- CD-Status bit 1
+ Connects to the LC8951 on the drive - Data Enable Output.  
  Informs the host that data transfer will start.
  This output is set to LOW to signal the host computer that data is ready to be transfered.
-### 26 HRD
+### 26 *HRD
+ Connects to the LC8951 on the drive - Host Data Read Input (Why not Host Read Data?) 
  If the read signals from the host exceed the LC8951 maximum data rate (about 2.3MB/s), the LC8951 sets the DRQ (WAIT) pin to LOW. The host must then hold HRD low to delay the read until the DRQ (WAIT) pin goes HIGH. 
 
 ### 27 STEN
- ```The controller and the host perform handshaking using signals at the STEN pin```
- This output is set to LOW to signal the host computer that the status byte is ready to be read out.
+Connects to the LC8951 on the drive - Status Enable Output.  
+ ```The controller and the host perform handshaking using signals at the STEN pin```  
+ This output is set to LOW to signal the host computer that the status byte is ready to be read out.  
  
-### 28 CMD
- CD-Status / Data Enable    
+### 28 *CMD
+ Connects to the LC8951 on the drive - Host Command/Data select 
  When the host sees that DTEN is LOW it sets CMD to HIGH instructing the LC8951 to transfer successive bytes.  
 
 ### EOP - N/C
@@ -170,7 +173,7 @@ Bidirectional 8 bit data bus.
 This is not only used for transfering data to the "host" (ie the CDTV) but also commands to the controller and data from the controller. 
 
 ## MKE Interface (similar)
-The CDTV is presumed to use a modified MKE interface. 
+The CDTV was presumed to use a modified MKE interface... I'm not *entirely* sure that's correct, I suspect that the A570 uses a modified MKE, the CDTV is a bit funkier. 
 
 1. GND               
 2. CD-Reset                (RESET)
