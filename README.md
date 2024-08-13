@@ -23,18 +23,19 @@ While this is based off a physical 2.2.1 board I've noted the differences betwee
 
 There are some differences noted between the schematics and the actual board. These are noted here. 
 
-1) RP1 and RP2 are the wrong way round on the schematics/board silkscreen. - Fixed (to the schematics) on this board.
-2) EMI55-58 & EMI87-88 are all wrong on the schematics/board silkscreen. - Fixed (to the schematics) on this board.
-3) RP23 & RP24 don't exist on the Rev 2.2.1 board (although there appear to be locations for them).
-4) U23 pins 8, 9 & 4 aren't connected (this appears to be one of the fixes on Rev 2.3)
-5) U23 pin 5 is not connected to U43 or U81 (this appears to be one of the fixes on Rev 2.3)
-6) U23 pin 4 is connected to U13 pin 12 (*OE) not pin 10
-7) U12 (Gary) Pin 21 (*ROMEN) is connected to pin 9 on U23 (and ground to pin 8) while the schematic shows it as being connected to Pin 6
-8) U38 pin 8 is not connected to U63 pin 13 (this appears to be one of the fixed on Rev 2.3) - I've not yet validated what is actually connected.
-9) U38 pin 1 is not connected to U63 pin 12 (this appears to be one of the fixed on Rev 2.3) - I've not yet validated what is actually connected.
-10) DMAC CFGOUT is connected to ground
-11) Only one of two CPU VCC are connected!
-12) Inverter 4 on U63 is shown on the schematics as grounded/unused. It's not. - I've not yet validated what is actually connected.
+1) RP1 and RP2 are the swapped/wrong way round on the schematics/board silkscreen. - Fixed (to the schematics) on this board.
+2) EMI57 & EMI87 are swapped/wrong way round on the schematics/board silkscreen. - Fixed (to the schematics) on this board.
+3) EMI86 isn't actually shown as being used on PRDT (just a random "EMI" shown). 
+4) RP23 & RP24 don't exist on the Rev 2.2.1 board (although there appear to be locations for them).
+5) U23 pins 8, 9 & 4 aren't connected (this appears to be one of the fixes on Rev 2.3)
+6) U23 pin 5 is not connected to U43 or U81 (this appears to be one of the fixes on Rev 2.3)
+7) U23 pin 4 is connected to U13 pin 12 (*OE) not pin 10
+8) U12 (Gary) Pin 21 (*ROMEN) is connected to pin 9 on U23 (and ground to pin 8) while the schematic shows it as being connected to Pin 6
+9) U38 pin 8 is not connected to U63 pin 13 (this appears to be one of the fixed on Rev 2.3) - I've not yet validated what is actually connected.
+10) U38 pin 1 is not connected to U63 pin 12 (this appears to be one of the fixed on Rev 2.3) - I've not yet validated what is actually connected.
+11) DMAC CFGOUT is connected to ground. 
+12) (Reportedly) Only one of two CPU VCC are connected! - Not verified however both are connected on this board.
+13) Inverter 4 on U63 is shown on the schematics as grounded/unused. It's not. - I've not yet validated what is actually connected.
 
 ## Differences from Original
 
