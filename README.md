@@ -4,8 +4,8 @@ ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.
 ## Status
 
 WIP. Almost all the chips are in the correct (ish) locations with their pins all correctly on the right nets (according to the schematics).
-Some oddities with KiCAD generating a 3D image but this roughly shows the current state of play
-![image](https://github.com/user-attachments/assets/5ed97ea2-4629-470a-82ec-824a90a82346)
+![image](https://github.com/user-attachments/assets/ca93b779-4152-4e24-b5c8-5961822639a0)
+
 
 
 ## Summary
@@ -50,6 +50,23 @@ The routing is "kind of" like the original however while I have tried to follow 
 ## Unobtainium (non Commodore) parts.
 
 TBC - This will list "regular" parts that are NLA. 
+
+### Connectors
+#### CN26, CN17B, CN18 - 3 way
+Molex 530140310 (53014-0310) - Available still on Aliexpress
+#### CN23, CN24, CN19 - 2 way
+Molex 530140210 (53014-0210) - Available still on Aliexpress
+#### CN27 - 4 way
+Molex 530140410 (53014-0410) - Available still on Aliexpress
+#### CD Drive (3 way horizontal)
+Molex 530150310 (53015-0310) - Available still on Aliexpress
+
+#### Connectors
+2-way 510040200, 3-way 510040300 & 4-way 510040400, they use Molex 50011 crimp terminals, these appear to still be available (50011-8000)
+
+
+
+
 
 ## Other things of note. 
 
