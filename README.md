@@ -4,7 +4,8 @@ ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.
 ## Status
 
 WIP. Almost all the chips are in the correct (ish) locations with their pins all correctly on the right nets (according to the schematics).
-![image](https://github.com/user-attachments/assets/ca93b779-4152-4e24-b5c8-5961822639a0)
+![image](https://github.com/user-attachments/assets/80118620-f9f3-4792-aaf9-3affacaf60b7)
+
 
 
 
