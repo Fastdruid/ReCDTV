@@ -49,7 +49,9 @@ The routing is "kind of" like the original however while I have tried to follow 
 
 ## Unobtainium (non Commodore) parts.
 
-TBC - This will list "regular" parts that are NLA. 
+This will list "regular" parts that are NLA. 
+
+1) T1 - The transformer for the VFD power. This is both unavailable and almost certainly impossible to remove from a board without destroying it. 
 
 ### Connectors
 #### CN26, CN17B, CN18 - 3 way
