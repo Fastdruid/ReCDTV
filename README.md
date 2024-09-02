@@ -4,9 +4,7 @@ ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.
 ## Status
 
 WIP. Almost all the chips are in the correct (ish) locations with their pins all correctly on the right nets (according to the schematics).
-![image](https://github.com/user-attachments/assets/80118620-f9f3-4792-aaf9-3affacaf60b7)
-
-
+![image](https://github.com/user-attachments/assets/02cd8160-1442-4641-8290-869bec7e5016)
 
 
 ## Summary
@@ -22,7 +20,7 @@ While this is based off a physical 2.2.1 board I've noted the differences betwee
 
 ## Known Schematic errors
 
-There are some differences noted between the schematics and the actual board. These are noted here. 
+There are some differences noted between the schematics/Service Manual and the actual board. These are noted here. 
 
 1) RP1 and RP2 are the swapped/wrong way round on the schematics/board silkscreen. - Fixed (to the schematics) on this board.
 2) EMI57 & EMI87 are swapped/wrong way round on the schematics/board silkscreen. - Fixed (to the schematics) on this board.
@@ -37,6 +35,7 @@ There are some differences noted between the schematics and the actual board. Th
 11) DMAC CFGOUT is connected to ground. 
 12) (Reportedly) Only one of two CPU VCC are connected! - Not verified however both are connected on this board.
 13) Inverter 4 on U63 is shown on the schematics as grounded/unused. It's not. - I've not yet validated what is actually connected.
+14) C88 & C89 are not listed in the parts list. C89 is repeated twice, once on page 2 and once on page 3. 
 
 ## Differences from Original
 
@@ -64,10 +63,6 @@ Molex 530150310 (53015-0310) - Available still on Aliexpress
 
 #### Connectors
 2-way 510040200, 3-way 510040300 & 4-way 510040400, they use Molex 50011 crimp terminals, these appear to still be available (50011-8000)
-
-
-
-
 
 ## Other things of note. 
 
