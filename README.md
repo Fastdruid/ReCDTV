@@ -18,7 +18,7 @@ I have attempted to use "new" parts where possible however some are NLA or were 
 
 While this is based off a physical 2.2.1 board I've noted the differences between the schematics and the board and as so applied these. 
 
-## Known Schematic errors
+## Known Schematic / Service Manual errors
 
 There are some differences noted between the schematics/Service Manual and the actual board. These are noted here. 
 
@@ -35,11 +35,13 @@ There are some differences noted between the schematics/Service Manual and the a
 11) DMAC CFGOUT is connected to ground. 
 12) (Reportedly) Only one of two CPU VCC are connected! - Not verified however both are connected on this board.
 13) Inverter 4 on U63 is shown on the schematics as grounded/unused. It's not. - I've not yet validated what is actually connected.
-14) C88 & C89 are not listed in the parts list. C89 is repeated twice, once on page 2 and once on page 3. 
+14) C88 & C89 are not listed in the parts list. C89 is repeated twice, once on page 2 and once on page 3.
+15) C5 is repeated twice in the parts list. The actual capacitor fitted is a CBM P/N 900022-01 - "MLC RAD .22uF 50V"
+16) The .22uF capacitors for U78 and U79 are not labled in the schematic. Presumed (due to proximity) to be C159 & C182
 
 ## Differences from Original
 
-V1 is intended to be a functional "like for like" copy of a 2.2.1 board *WITH* the changes made to the 2.2 board to become rev 2.3. It is not a perfect 1:1 locations have been made as close as possible but may differ slightly. 
+V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is not a perfect 1:1, locations have been made as close as possible but may differ slightly. 
 
 All of the non-Commodore/Amiga unique parts have been sourced as far as they can. 
 
@@ -52,6 +54,8 @@ The routing is "kind of" like the original however while I have tried to follow 
 This will list "regular" parts that are NLA. 
 
 1) T1 - The transformer for the VFD power. This is both unavailable and almost certainly impossible to remove from a board without destroying it. 
+2) CN1 - The DB23 video port. Very limited availability however a servicable replica can be created from a solder cup DB23 and a "cut-n-shut" DB25.
+3) CN4 - The DB23 floppy port. Very limited availability however a servicable replica can be created from a solder cup DB23 and a "cut-n-shut" DB25.
 
 ### Connectors
 #### CN26, CN17B, CN18 - 3 way
