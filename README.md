@@ -4,7 +4,10 @@ ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.
 ## Status
 
 WIP. Almost all the chips are in the correct (ish) locations with their pins all correctly on the right nets (according to the schematics).
-![image](https://github.com/user-attachments/assets/02cd8160-1442-4641-8290-869bec7e5016)
+Currently routing...Maybe 50% is "correct" as per the original, the rest I'm now making up as I go along!
+
+![image](https://github.com/user-attachments/assets/069a4b89-fae4-4c8e-8e9b-d523f96cfc27)
+
 
 
 ## Summary
@@ -47,7 +50,8 @@ All of the non-Commodore/Amiga unique parts have been sourced as far as they can
 
 Unfortunately as a number of the chips are unique to the CDTV this isn't a project that is of much use *except* to fix a broken CDTV. 
 
-The routing is "kind of" like the original however while I have tried to follow the routing I have focused on functionality over being totally identical. 
+The routing is where posible the same as the original however there without removing all the components it would be almost impossible to do. 
+Routing is where "kind of" like the original where it can be up to a certain point beyond which I treated it as a new board and just routed it as I would (based on the same rules, top layer horizontal, bottom vertical). 
 
 ## Unobtainium (non Commodore) parts.
 
