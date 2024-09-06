@@ -7,6 +7,7 @@ WIP. Almost all the chips are in the correct (ish) locations with their pins all
 Currently routing...Maybe 50% is "correct" as per the original, the rest I'm now making up as I go along!
 
 ![image](https://github.com/user-attachments/assets/069a4b89-fae4-4c8e-8e9b-d523f96cfc27)
+![image](https://github.com/user-attachments/assets/70e148a9-18ef-4b9d-a031-c0e8b96112d8)
 
 
 
