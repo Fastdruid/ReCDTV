@@ -39,7 +39,9 @@ There are some differences noted between the schematics/Service Manual and the a
 11) C88 & C89 are not listed in the parts list. C89 is repeated twice, once on page 2 and once on page 3.
 12) C5 is repeated twice in the parts list. The actual capacitor fitted is a CBM P/N 900022-01 - "MLC RAD .22uF 50V"
 13) The .22uF capacitors for U78 and U79 are not labled in the schematic. Presumed (due to proximity) to be C159 & C182
-14) U37 is shown in the schematic as having pins 1,5 & 11 grounded. Only 11 is, Pins 2 & 6 connect to either side of JP15 which is alternately labeled JP18 on someone elses Rev 2.2.1 board! JP18/15 is not on Rev 2.1, 2.2, 2.2A, 2.2B or 2.3, not mentioned in the schematics and JP15 in them is totally different. 
+14) U37 is shown in the schematic as having pins 1,5 & 11 grounded. Only 11 is, Pins 2 & 6 connect to either side of JP15 which is alternately labeled JP18 on someone elses Rev 2.2.1 board! JP18/15 is not on Rev 2.1, 2.2, 2.2A, 2.2B or 2.3, not mentioned in the schematics and JP15 in them is totally different.
+15) U24 pin 5 goes to U37 pin 5 instead of U17 pin 12.
+16) U37 pin 6 goes to U17 pin 12 (joined to U37 pin 2 via JP15/18)
 
 ## Differences from Original
 
