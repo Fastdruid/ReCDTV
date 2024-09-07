@@ -42,6 +42,8 @@ There are some differences noted between the schematics/Service Manual and the a
 14) U37 is shown in the schematic as having pins 1,5 & 11 grounded. Only 11 is, Pins 2 & 6 connect to either side of JP15 which is alternately labeled JP18 on someone elses Rev 2.2.1 board! JP18/15 is not on Rev 2.1, 2.2, 2.2A, 2.2B or 2.3, not mentioned in the schematics and JP15 in them is totally different.
 15) U24 pin 5 goes to U37 pin 5 instead of U17 pin 12.
 16) U37 pin 6 goes to U17 pin 12 (joined to U37 pin 2 via JP15/18)
+17) U24 pins 4 & 5 are grounded (minor issue as these are unused OR gates but its not shown)
+18) U26 pins 3,11 & 13 are grounded (minor issue as these are unused intvertes but its not shown)
 
 ## Differences from Original
 
