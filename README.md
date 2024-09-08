@@ -52,10 +52,22 @@ V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is n
 
 All of the non-Commodore/Amiga unique parts have been sourced as far as they can. 
 
-Unfortunately as a number of the chips are unique to the CDTV this isn't a project that is of much use *except* to fix a broken CDTV. 
+Unfortunately as U62 & U75 are unique to the CDTV this isn't a project that is of much use *except* to fix a broken CDTV (that said, I did manage to buy U62 so it is at least technically possible to build a brand new one).
 
-The routing is where posible the same as the original however there without removing all the components it would be almost impossible to do. 
-Routing is where "kind of" like the original where it can be up to a certain point beyond which I treated it as a new board and just routed it as I would (based on the same rules, top layer horizontal, bottom vertical). 
+The routing started the same as the original however it got to a point where it just wasn't possible without removing all the components from the board to trace tracks and became increasingly difficult. 
+Routing is therefore "kind of" like the original where it can be up to a certain point beyond which I treated it as a new board and just routed it as I would (based on the same rules, top layer horizontal, bottom vertical). 
+
+## Commodore chips required.
+
+1) U62 - CSG 252609-22 (basically the same as an A500 keyboard controller but with a different ROM/firmware).
+2) U75 - CSG 252608-01 (Sanyo LC6555H-4615 with custom ROM/firmware)
+3) U36 - "DMAC" CSG 390563-02
+4) U32 - "Tri-Port" CSG 6525A (Note the speed rating)
+5) U44 - "Fat Agnus" CSG 318069-02 (8372A)
+6) U8  - "Denise" CSG 8362R8
+7) U9/U10 - "CIA" CSG 8520A-1 (obviously 2x)
+8) U4 - "Paula" CSG 252127-02
+9) U12 - "Gary" CSG 5719
 
 ## Unobtainium (non Commodore) parts.
 
@@ -64,6 +76,8 @@ This will list "regular" parts that are NLA.
 1) T1 - The transformer for the VFD power. This is both unavailable and almost certainly impossible to remove from a board without destroying it. 
 2) CN1 - The DB23 video port. Very limited availability however a servicable replica can be created from a solder cup DB23 and a "cut-n-shut" DB25.
 3) CN4 - The DB23 floppy port. Very limited availability however a servicable replica can be created from a solder cup DB23 and a "cut-n-shut" DB25.
+4) U17 - Sanyo LC7883M - DAC. long since replaced with newer DACs I will try and find a like for like replacement.
+5) U16 - Mitsubishi M51568FP - Analog output amplifier. 
 
 ### Connectors
 #### CN26, CN17B, CN18 - 3 way
