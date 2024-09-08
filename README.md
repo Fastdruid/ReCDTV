@@ -20,7 +20,7 @@ You will almost certainly need a CDTV to build this, unfortunately the drive in 
 
 I have attempted to use "new" parts where possible however some are NLA or were Commodore only parts. You will have to harvest them from an Amiga or CDTV.
 
-While this is based off a physical 2.2.1 board I've noted the differences between the schematics and the board and as so applied these. 
+While this is based off a physical 2.2.1 board I've noted the differences between the schematics and the board and fixed or left as is depending on how appropriate it is...I should probably release updated schematics too!
 
 ## Known Schematic / Service Manual errors
 
