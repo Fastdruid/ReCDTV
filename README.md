@@ -44,7 +44,8 @@ There are some differences noted between the schematics/Service Manual and the a
 16) U37 pin 6 goes to U17 pin 12 (joined to U37 pin 2 via JP15/18)
 17) U24 pins 4 & 5 are grounded (minor issue as these are unused OR gates but its not shown)
 18) U26 pins 3,11 & 13 are grounded (minor issue as these are unused intvertes but its not shown)
-19) R48 and R49 are swapped. So U27 pin 6 goes to R49 not R48. 
+19) R48 and R49 are swapped. So U27 pin 6 goes to R49 not R48.
+20) U39 Pin 1 is labeled as EPO.~{CSX1} but U36 Pin 1 has it as EOP.~{CSX1}
 
 ## Differences from Original
 
