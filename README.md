@@ -92,6 +92,13 @@ Molex 530150310 (53015-0310) - Available still on Aliexpress
 #### Connectors
 2-way 510040200, 3-way 510040300 & 4-way 510040400, they use Molex 50011 crimp terminals, these appear to still be available (50011-8000)
 
+## Considered improvements.
+
+1) Swap to SMD components for all 74 chips.
+2) Remove U28 and use the other "half" of U24 instead.
+3) Use a CPLD to replace the massive numbers of 74 chips (as the A590 does).
+4) Swap to SMD cap & resistor setup (like the A1200).
+
 ## Other things of note. 
 
 TBC
