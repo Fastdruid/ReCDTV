@@ -1,10 +1,9 @@
 # ReCDTV
-ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.1/2.3
+ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.1
 
 ## Status
 
-WIP. Almost all the chips are in the correct (ish) locations with their pins all correctly on the right nets (according to the schematics).
-Currently routing...Maybe 50% is "correct" as per the original, the rest I'm now making up as I go along!
+WIP. All the chips are in the correct (ish) locations with their pins all correctly on the right nets (according to the schematics) and mostly routed... I'm currently verifying they match the schematics before finishing routing. 
 
 ![image](https://github.com/user-attachments/assets/069a4b89-fae4-4c8e-8e9b-d523f96cfc27)
 ![image](https://github.com/user-attachments/assets/70e148a9-18ef-4b9d-a031-c0e8b96112d8)
@@ -18,7 +17,7 @@ While there are schematics out there for the CDTV I'm not aware of any remakes.
 
 You will almost certainly need a CDTV to build this, unfortunately the drive in a CDTV is unique to it so even if you could manage to find all the parts you would be able to do anything without the drive!
 
-I have attempted to use "new" parts where possible however some are NLA or were Commodore only parts. You will have to harvest them from an Amiga or CDTV.
+I have attempted to use "new" parts where possible however some are NLA or were Commodore only parts. You will have to harvest them from an Amiga or CDTV. The most problematic is likely to be the T1 coil. This is almost certainly impossible to remove intact from the board. 
 
 While this is based off a physical 2.2.1 board I've noted the differences between the schematics and the board and fixed or left as is depending on how appropriate it is...I should probably release updated schematics too!
 
@@ -51,7 +50,7 @@ There are some differences noted between the schematics/Service Manual and the a
 
 ## Differences from Original
 
-V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is not a perfect 1:1, locations have been made as close as possible but may differ slightly. 
+V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is not a perfect 1:1, locations have been made as close as possible but may differ slightly. I cannot guarantee anything that connects between multiple items will fit (eg the ROM developer board).
 
 All of the non-Commodore/Amiga unique parts have been sourced as far as they can. 
 
@@ -79,8 +78,8 @@ This will list "regular" parts that are NLA.
 1) T1 - The transformer for the VFD power. This is both unavailable and almost certainly impossible to remove from a board without destroying it. 
 2) CN1 - The DB23 video port. Very limited availability however a servicable replica can be created from a solder cup DB23 and a "cut-n-shut" DB25.
 3) CN4 - The DB23 floppy port. Very limited availability however a servicable replica can be created from a solder cup DB23 and a "cut-n-shut" DB25.
-4) U17 - Sanyo LC7883M - DAC. long since replaced with newer DACs I will try and find a like for like replacement.
-5) U16 - Mitsubishi M51568FP - Analog output amplifier. 
+4) U17 - Sanyo LC7883M - DAC. long since replaced with newer DACs so is NLA. I will try and find a like for like replacement.
+5) U16 - Mitsubishi M51568FP - Analog output amplifier. Again NLA. I will try and find a like for like replacement.
 
 ### Connectors
 #### CN26, CN17B, CN18 - 3 way
@@ -97,10 +96,12 @@ Molex 530150310 (53015-0310) - Available still on Aliexpress
 
 ## Considered improvements.
 
-1) Swap to SMD components for all 74 chips.
+1) Swap to SMD versions of all 74 chips.
 2) Remove U28 and use the other "half" of U24 instead.
 3) Use a CPLD to replace the massive numbers of 74 chips (as the A590 does).
 4) Swap to SMD cap & resistor setup (like the A1200).
+5) Use a single chip for 2MB of memory
+6) Allow a 2MB 8375 Agnus to be used. 
 
 ## Other things of note. 
 
