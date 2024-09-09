@@ -48,6 +48,7 @@ There are some differences noted between the schematics/Service Manual and the a
 21) RP25 pin 3 is not connected to U77 pin 16 (this is signal *BUDS which is labled NC so this is not important)
 22) RP25 pin 4 is not connected to U77 pin 18 (this is signal *BLDS which is labled NC so this is not important)
 23) R143 is not shown in the schematic but is connected between VPP and GND
+24) D7 doesn't appear anywhere in the schematics.
 
 ## Differences from Original
 
