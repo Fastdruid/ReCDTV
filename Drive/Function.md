@@ -14,7 +14,7 @@ PC3 (STEN)
 PC4 (DRQ)  
 PC5 is the IRQ output and drives IRQ2  
   
-PC6 and PC7 can be used as general purpose outputs or as data transfer signals for ports A and B. I think these are used as GPIO on the basis that MS [1:0] is defined as GENLOCK MODE SELECT (AMIGA), these are then fed to the 
+PC6 and PC7 can be used as general purpose outputs or as data transfer signals for ports A and B. I think these are used as GPIO on the basis that MS [1:0] is defined as GENLOCK MODE SELECT (AMIGA) 
 PC6 (MS0) - GENLOCK MODE SELECT  (to U62)
 PC7 (MS1) - GENLOCK MODE SELECT  (to U62)
 
@@ -29,6 +29,13 @@ PB6 DACST (to the DAC, U17)
 PB7 DACLCH (to the DAC, U17)
 
 Finally we have PA0-PA7, this takes EFM Encoded Subcode data via a serial to parallel converter using a 74LS74 (U28),  74LS164 (U31), 74LS292 (U42) (as well as a number of gates from a 74LS08 (U21), 74LS00 (U29), 74LS04 (U40), and 74LS02 (U30)) and splits it to Channels W through P. 
+
+### Subcode. 
+Boy is this complicated!
+
+We have a 4-bit ripple counter in U42 (74LS293), this is "reset" by the NAND of
+
+
 
 R/W is handled using the normal R/W signal. The CS (Chip Select) for the Tri-Port is a NAND from A4 and CSX0 (XT Device Chip Select No.0) from DMAC
 
