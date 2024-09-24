@@ -2,7 +2,9 @@
 
 ## Pins
 
-In order of GPIO not pin number. Direction is in relation to the CDTV so O is from CDTV to drive, I is Drive to CDTV, U means Unknown, B is bidirectional, NC is not connected.
+In order of GPIO not pin number.   
+Direction is in relation to the CDTV so O is from CDTV to drive, I is Drive to CDTV, U means Unknown, B is bidirectional, NC is not connected.  
+Obviously these directions are reversed for the RPi!   
 
 | RPi Pin | Name | Type | Alt | CDTV Pin | Name | Direction |
 | --- | --- | --- | --- | --- | --- | --- |
