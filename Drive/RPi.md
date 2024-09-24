@@ -6,7 +6,7 @@ In order of GPIO not pin number.
 Direction is in relation to the CDTV so O is from CDTV to drive, I is Drive to CDTV, U means Unknown, B is bidirectional, NC is not connected.  
 Obviously these directions are reversed for the RPi!   
 
-| RPi Pin | Name | Type | Alt | CDTV Pin | Name | Direction |
+| RPi Pin | Name | Type | Alt0 | CDTV Pin | Name | Direction |
 | --- | --- | --- | --- | --- | --- | --- |
 | 27 | GPIO 0 | I2C |  | 1 | CDRST | O |
 | 28 | GPIO 1 | I2C |  | 4 | SCCK | O |
@@ -51,6 +51,7 @@ GPIO 20 (DIN) - AEMP???
 GPIO 21 (DOUT) "DATA"  
 
 ### I2C
+
 https://pinout.xyz/pinout/i2c  
 SCK (CLOCK)
 SDATA (DATA)
@@ -62,4 +63,9 @@ GPIO 3 (CLOCK)
 #### I2C 1
 GPIO 0 (DATA)  
 GPIO 1 (CLOCK)  
+
+#### Notes
+
+1) Disable reading I2C hat EEPROM on boot by setting force_eeprom_read=0 in /boot/config.txt
+2) Enable I2C on I2C1 sudo raspi-config nonint do_i2c <0/1>
 
