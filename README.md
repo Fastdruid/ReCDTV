@@ -52,6 +52,7 @@ There are some differences noted between the schematics/Service Manual and the a
 22) RP25 pin 4 is not connected to U77 pin 18 (this is signal *BLDS which is labled NC so this is not important)
 23) R143 is not shown in the schematic but is connected between VPP and GND
 24) D7 doesn't appear anywhere in the schematics.
+25) On the Rev 2.2.1 boards Pin 19, the "MODE" pin on the LC7883 (U17) is not connected to ground...or VCC. I have no idea what (if anything) it is connected to. This is problematic as the datasheet says it should be either H or L and says nothing on if it's floating. There is a possibility that it's actually got an internal Pull Down but it is not clear. On the Rev 2.2 boards it *is* connected to gnd (obvious from photos). Also AEMP is connected to EMPH1 however if MODE is Low then EMPH1 should be "fixed to H or L". I have my suspicions that this is an undocumented feature. 
 
 ## Differences from Original
 
