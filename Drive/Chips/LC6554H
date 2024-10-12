@@ -1,0 +1,10 @@
+# CBM 252608-01 / Sanyo LC6554H
+
+The LC6554H is a single chip 4-bit microcomputer with a 4Kb ROM & 1Kb RAM. 
+It has 57 pins for ports, 28 pins for 7 i/o common ports, 21 pins for 6 output port and 8 pins for 2 input ports. 
+The LC6554H has specific ports that are used to provide the interrupt function, 4-bit/8-bit serial input/output functiona and burst pulse output function.
+
+The ROM for this has been dumped. 
+
+
+
