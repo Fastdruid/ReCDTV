@@ -6,5 +6,35 @@ The LC6554H has specific ports that are used to provide the interrupt function, 
 
 The ROM for this has been dumped. 
 
+## Pin description
 
+| Pin(s) | Name |  Function |
+| --- | --- | --- |
+| 32,33 | OSC1, OSC2 | C,R, or ceramic resonator oscillator for OSC |
+| 10-13 | PA0-3 | Port for input only A0-3 |
+| 14-17 | PB0-3 | Port for input only B0-3 |
+| 18-21 | PC0-3 | Input/Output common port C0-3 |
+| 22-25 | PD0-3 | Input/Output common port D0-3 |
+| 26-29 | PE0-3 | Input/Output common port E0-3 |
+| 35-38 | PF0-3 | Input/Output common port F0-3 |
+| 39-42 | PG0-3 | Input/Output common port G0-3 |
+| 43-46 | PI0-3 | Input/Output common port I0-3 |
+| 47-50 | PJ0-3 | Input/Output common port J0-3 |
+| 52-55 | PK0-3 | Port for output only K0-3 |
+| 56-59 | PL0-3 | Port for output only L0-3 |
+| 60-63 | PM0-3 | Port for output only M0-3 |
+| 1-4 | PN0-3 | Port for output only N0-3 |
+| 5-8 | PO0-3 | Port for output only O0-3 |
+| 9 | PP0 | Port for output only P0 |
+| 35 | SI | 4-bit/8=bit serial input port |
+| 36 | SO | 4-bit/8=bit serial output port |
+| 37 | _SCK | Input/Output for serial clock |
+| 38 | _INT | Interrupt request input |
+| 51 | Vp | Vp pin |
+| 34 | _RES | Reset |
+| 30 | TEST | Test |
+| 65 | VDD | Supply Voltage 4.5-5.5V |
+| 31 | VSS | Ground |
+
+## CDTV Pinout
 
