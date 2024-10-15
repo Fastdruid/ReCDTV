@@ -25,7 +25,7 @@ I/O is in relation to the CDTV, so O is from CDTV to drive, I is Drive to CDTV, 
 3. EFFK [I] (EFM Frame clock output duty = 50%)
 4. SCCK [O] (Shift clock for serial subcode data output)
 5. SBCP [I] (Subcode Pch output Pch~Wch serial data output)
-6. SCOR [I] (Subcode sync output S0+s1)
+6. SCOR [I] (Subcode sync output S0+s1) 
 7. GND
 8. GND
 9. C16M [I] (16MHz DAC and LC8951 Clock)
@@ -81,6 +81,7 @@ Subcode Pch output Pch~Wch serial data output
 ### 6 SCOR - Pin 8 on A570
 This is for the Subcode or subchannel data
 Subcode sync output S0+s1  
+This triggers an inturrupt when a subcode is "ready" to be read.
 Connected via a 74LS244 to the Controller chip 
 
 ### 9 C16M - Pin 11 on A570
@@ -132,7 +133,8 @@ pin 67
 
 ### 20 STCH
  This is connected to the MN188161 Microprocessor. From the MKE pinout it's suggested this is CD-Status bit 0
- I'm not entirely sure what this does. 
+ This stands for STatus CHange and triggers an interrupt on the Tri-Port. This generates a level 2 interrupt on the 68k which is picked up by the cdtv.device which then sends MKE protocol command $81. 
+ I don't know what $81 is. 
  
 ### 21 *ENABLE
 ```To send a command the host computer sets the ENABLE and CMD pins to LOW and loads one or more command bites into the COMIN register (of the LC8951)```
