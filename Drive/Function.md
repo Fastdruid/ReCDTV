@@ -64,7 +64,7 @@ The Host can send up to 8 commands by asserting the *HWR signal.
 
 First the ENABLE is set LOW to enable the interface.  
 To read the drive status, *HWR is set HIGH, *HRD and *CMD is set LOW. The status previously written to the controller is then available from HD0-7 (to DMAC SD0-7) when *STEN is set LOW to signal that data is ready to be transfered. The *STEN signal goes high when the last byte is read. 
-(I suspect that *HRD is also used here).
+(I suspect that *HRD is also used here to indicate each byte has been read.).
 
 ### To read data
 
@@ -92,6 +92,7 @@ Once *HRD is HIGH then *EOP is set HIGH and then *ENABLE is set HIGH followed by
 ### Flow control
 
 If the read signals from the host exceed the LC8951 maximum data rate (about 2.3MB/s), the LC8951 sets the DRQ (WAIT) pin to LOW. The host must then hold *HRD low to delay the read until the DRQ (WAIT) pin goes HIGH. 
+note however that a single speed CDROM is only 150kb/s so there is little chance of getting anywhere close to this! 
 
 ### Timings
 
