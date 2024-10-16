@@ -222,44 +222,45 @@ The CDTV was presumed to use a modified MKE interface... I'm not *entirely* sure
 39. CD-Data 1 (D1)   
 40. CD-Data 0 (D0)
 
-## Command set (MKE) - CDTV Presumed similar
+## Command set (MKE) 
+
+It appears that MKE tailored each device, so while the Panasonic interface is undoubtedly similar its not the same. 
+
+Commands are 7 bytes long with the first byte being the command byte (upto??)
+
 ```
 Command         Hex code                # bytes Resp.   Note
 ===========================================================================
 
-Seek            01 M S F 0 0 0          1
-Spin up         02 0 0 0 0 0 0          1
-Status          05 0 0 0 0 0 0          1       Only get status
-Tray out        06 0 0 0 0 0 0          1       Eject tray
-Tray in         07 0 0 0 0 0 0          1       Close tray
-Abort           08                      1
-Set mode        09 5 0 1 v 2 v          1       Set volume (patch), v = volume
-                09 3 0 s s 0 0          1       Set speed
-Reset           0a 0 0 0 0 0 0          0       Reset drive
-Lock ctl        0c L 0 0 0 0 0          1       L=1 lock, L=0 unlock
-Pause resume    0d P 0 0 0 0 0          1       P=80 resume, P=0 pause
-Play MSF        0e m s f M S F          1       play from m-s-f to M-S-F
-Play track/ind  0f t i T I 0 0          1       play from t i to T I
-Read            10 M S F 0 0 n          1       read n blocks
-Subchannel info 11
-Read error      82 0 0 0 0 0 0          9       Get error code
-Read version    83 0 0 0 0 0 0          11      Get version string
-Get mode        84 5 0 0 0 0 0          6       Get audio volume & patch
-Capacity        85 0 0 0 0 0 0          6
+Seek            01  M  S  F  0  0  0          1
+Read            02 ss ss ss ll ll 00            ss=24 bit start sector, ll=26 bit number of sectors to read
+Motor on        04
+Motor off       05
+Play (LSN)      09
+Play (MSF)      0a
+Play track      0b st si et ei 00 00            st=start track, si=start index, et=stop track, ei=stop index
+CD-ROM Status   81                              See status codes below
+Read Error?     82
+Model Name      83
+Select Mode 1/2 84 ?? sh sl 00 ?? 00            sh=sector size high byte (*256), sl=sector size low byte
 Read SubQ       87
-Read UPC        88                              Read universal product code
-Diskinfo        8b 0 0 0 0 0 0          7       Read disk info
-Read TOC        8c 0 e 0 0 0 0          9       Read TOC entry e
-Multisession    8d
-Packet          8e
-
-NOTE:
-1. Last byte got from the drive is always a status byte.
-2. Driver always should wait for no error & ready state before issuing
-command.  (There may be a disk change between two commands, so we
-don't know the state of the drive.)
-================================================================
+CD-ROM Info?    89                              
+Read TOC        8a ml tt 00 00 00 00            ml=select MSF or LSN values, tt=track# to start from or 0 for volume summary
+Pause/Resume    8b pp 00 00 00 00 00            $80 or 0 will pause/unpause
+Front panel     a3 ed 00 00 00 00 00            Enable or disable SPI interface ($20 is enable, 0 is disable).
 ```
+## CDROM status
+```
+#define MATSU_STATUS_READY ( 1 << 0 ) /* driver ready */
+#define MATSU_STATUS_DOORLOCKED ( 1 << 1 ) /* door locked */
+#define MATSU_STATUS_PLAYING ( 1 << 2 ) /* drive playing */
+#define MATSU_STATUS_SUCCESS ( 1 << 3 ) /* last command was successful */
+#define MATSU_STATUS_ERROR ( 1 << 4 ) /* last command failed */
+#define MATSU_STATUS_MOTOR ( 1 << 5 ) /* spinning */
+#define MATSU_STATUS_MEDIA ( 1 << 6 ) /* media present (in caddy or tray) */
+#define MATSU_STATUS_DOORCLOSED ( 1 << 7 ) /* tray status */
+```
+
 ## Error codes (MKE) - CDTV Presumed similar
 ```
 00      No error
@@ -321,15 +322,18 @@ These connect to SBT and SBI on the MN188161 which are described as
 
 # Sources
 
-1. CDTV Service Manual
-2. A570 Schematics (badly scanned and barely readable, if anyone has better copy please let me know!)
-3. https://en.wikipedia.org/wiki/Panasonic_CD_interface
-4. https://www.chiark.greenend.org.uk/~theom/electronics/panasoniccd.html
-5. Sanyo LC7883 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
-6. Sanyo LC8951 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
-7. https://en.wikipedia.org/wiki/I%C2%B2S
-8. https://en.wikipedia.org/wiki/Compact_Disc_subcode
-9. https://www.lo-tech.co.uk/tag/xt-ide/
+1. C4ptFuture (massive thanks!) https://github.com/C4ptFuture
+2. CDTV Service Manual
+3. A570 Schematics (badly scanned and barely readable, if anyone has better copy please let me know!)
+4. https://en.wikipedia.org/wiki/Panasonic_CD_interface
+5. https://www.chiark.greenend.org.uk/~theom/electronics/panasoniccd.html
+6. Sanyo LC7883 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
+7. Sanyo LC8951 datasheet - https://archive.org/details/sanyo-lc8950-lc8951-lc7883
+8. https://en.wikipedia.org/wiki/I%C2%B2S
+9. https://en.wikipedia.org/wiki/Compact_Disc_subcode
+10. https://www.lo-tech.co.uk/tag/xt-ide/
+11. WinUAE Source code https://github.com/tonioni/WinUAE/blob/master/cdtv.cpp
+ 
 
 
 
