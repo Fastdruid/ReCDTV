@@ -244,12 +244,15 @@ Read Error?     82
 Model Name      83
 Select Mode 1/2 84 ?? sh sl 00 ?? 00            sh=sector size high byte (*256), sl=sector size low byte
 Read SubQ       87
-CD-ROM Info?    89                              
+Volume summary  89                              
 Read TOC        8a ml tt 00 00 00 00            ml=select MSF or LSN values, tt=track# to start from or 0 for volume summary
 Pause/Resume    8b pp 00 00 00 00 00            $80 or 0 will pause/unpause
 Front panel     a3 ed 00 00 00 00 00            Enable or disable SPI interface ($20 is enable, 0 is disable).
 ```
 ## CDROM status
+
+This is an 8 bit status code consisting of the following bits. 
+
 ```
 #define MATSU_STATUS_READY ( 1 << 0 ) /* driver ready */
 #define MATSU_STATUS_DOORLOCKED ( 1 << 1 ) /* door locked */
