@@ -218,3 +218,4 @@ https://dosdays.co.uk/topics/xt_ide_vs_ide.php
 MOS/CSG 6525 "TRI-PORT INTERFACE" - https://myoldcomputer.nl/Files/Datasheet/mos_6525_tpi.pdf
 LC89515 - https://pdf1.alldatasheet.com/datasheet-pdf/view/41148/SANYO/LC89515.html
 http://bitsavers.informatik.uni-stuttgart.de/components/westernDigital/_dataBooks/1993_SystemLogic_Imaging_Storage/27_WD42C22C.pdf
+https://jbum.com/cdg_revealed.html
