@@ -73,7 +73,7 @@ This is connected to the MN188161 Microprocessor.
 This is for the Subcode or subchannel data
 EFM Frame clock output duty = 50%
 ### 4 SCCK - Pin 6 on A570
-This is for the Subcode or subchannel data
+This is an clock for the Subcode or subchannel data. Passed from the CDTV to the drive. 
 Shift clock for serial subcode data output
 ### 5 SBCP - Pin 7 on A570
 This is for the Subcode or subchannel data
@@ -81,7 +81,7 @@ Subcode Pch output Pch~Wch serial data output
 ### 6 SCOR - Pin 8 on A570
 This is for the Subcode or subchannel data
 Subcode sync output S0+s1  
-This triggers an inturrupt when a subcode is "ready" to be read.
+This triggers an level 2 interrupt every frame. This is essential to the cdtv.device.
 Connected via a 74LS244 to the Controller chip 
 
 ### 9 C16M - Pin 11 on A570
@@ -107,6 +107,10 @@ This emphasis feature was the biggest reason why different CD players sounded di
 
 Producers and engineers started turning off the emphasis switches. Converters were getting better so there was less converter noise, and the use of de-emphasis circuits was eliminated.
 ```
+According to the datasheet for the LC7883M this pin should do nothing as the chip is configured for serial data control.
+
+I don't believe there are any CDs made in the last 30 years that use pre-emphasis during mastering (and hence need de-emphasis), this is a list of CD's that  
+https://www.studio-nibble.com/cd/index.php?title=Pre-emphasis_(release_list)
  
 ### 14 DATA - Pin 16 on A570
 
