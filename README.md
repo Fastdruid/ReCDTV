@@ -56,6 +56,11 @@ There are some differences noted between the schematics/Service Manual and the a
 26) On page 11 CDAL/AUDR is shown as going to/from page 4,5 while CDAR/AUDL is shown going to/from page 4. In reality AUDL/AUDR comes from page 4,5 and CDAR/CDAL goes to page 4
 27) On page 10 U32 is shown (and listed in the spare parts list) as a 3MHz 6525B. On all CDTV's seen however a 2MHz 6525A is used.
 
+## Known issues
+
+1) The serial->parallel shift register for the subcode is backwards so the CD+G library has to use a lookup table to reverse everything!
+   
+
 ## Differences from Original
 
 V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is not a perfect 1:1, locations have been made as close as possible but may differ slightly. I cannot guarantee anything that connects between multiple items will fit (eg the ROM developer board).
