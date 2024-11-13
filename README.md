@@ -55,6 +55,8 @@ There are some differences noted between the schematics/Service Manual and the a
 25) On the Rev 2.2.1 boards Pin 19, the "MODE" pin on the LC7883 (U17) is not connected to ground...or VCC. I have no idea what (if anything) it is connected to. This is problematic as the datasheet says it should be either H or L and says nothing on if it's floating. There is a possibility that it's actually got an internal Pull Down but it is not clear. On the Rev 2.2 boards it *is* connected to gnd (obvious from photos). Also AEMP is connected to EMPH1 however if MODE is Low then EMPH1 should be "fixed to H or L". I have my suspicions that this is an undocumented feature.
 26) On page 11 CDAL/AUDR is shown as going to/from page 4,5 while CDAR/AUDL is shown going to/from page 4. In reality AUDL/AUDR comes from page 4,5 and CDAR/CDAL goes to page 4
 27) On page 10 U32 is shown (and listed in the spare parts list) as a 3MHz 6525B. On all CDTV's seen however a 2MHz 6525A is used.
+28) On U60 pins 3 & 7 are swapped (*INCD and *CD/TV)
+29) RP27 is labeled in different places with Pin 1 to VCC and pin 1 to +5VD. Its +5VD.
 
 ## Known issues
 
