@@ -109,7 +109,7 @@ Producers and engineers started turning off the emphasis switches. Converters we
 ```
 According to the datasheet for the LC7883M this pin should do nothing as the chip is configured for serial data control.
 
-I don't believe there are any CDs made in the last 30 years that use pre-emphasis during mastering (and hence need de-emphasis), this is a list of CD's that  
+I don't believe there are any CDs made in the last 30 years that use pre-emphasis during mastering (and hence need de-emphasis), this is I think a full list of CD's that actually used it... 
 https://www.studio-nibble.com/cd/index.php?title=Pre-emphasis_(release_list)
  
 ### 14 DATA - Pin 16 on A570
@@ -137,8 +137,8 @@ pin 67
 
 ### 20 STCH
  This is connected to the MN188161 Microprocessor. From the MKE pinout it's suggested this is CD-Status bit 0
- This stands for STatus CHange and triggers an interrupt on the Tri-Port. This generates a level 2 interrupt on the 68k which is picked up by the cdtv.device which then sends MKE protocol command $81. 
- I don't know what $81 is. 
+ This stands for STatus CHange and triggers an interrupt on the Tri-Port. This generates a level 2 interrupt on the 68k which is picked up by the cdtv.device which then sends MKE protocol command $81 (request status). 
+ 
  
 ### 21 *ENABLE
 ```To send a command the host computer sets the ENABLE and CMD pins to LOW and loads one or more command bites into the COMIN register (of the LC8951)```
@@ -251,7 +251,7 @@ Read SubQ       87
 Volume summary  89                              
 Read TOC        8a ml tt 00 00 00 00            ml=select MSF or LSN values, tt=track# to start from or 0 for volume summary
 Pause/Resume    8b pp 00 00 00 00 00            $80 or 0 will pause/unpause
-Front panel     a3 ed 00 00 00 00 00            Enable or disable SPI interface ($20 is enable, 0 is disable).
+Front panel     a3 ed 00 00 00 00 00            Enable or disable I2C interface ($20 is enable, 0 is disable).
 ```
 ## CDROM status
 
