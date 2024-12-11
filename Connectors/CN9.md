@@ -68,10 +68,12 @@ I/O is in relation to the CDTV, so O is from CDTV to drive, I is Drive to CDTV, 
 ### 1 (CDRST) - Pin 3 on A570
  Reset?   
  NAND of IOR,IOW -> NOR of IFRST (InterFace ReSeT)  
+ This is normally HIGH. Goes LOW for reset. 
 ### 3 EFFK - Pin 5 on A570
 This is connected to the MN188161 Microprocessor.
 This is for the Subcode or subchannel data
 EFM Frame clock output duty = 50%
+This is ~7.35kHz while a CD is spinning and ~9.05kHz when its not. 
 ### 4 SCCK - Pin 6 on A570
 This is an clock for the Subcode or subchannel data. Passed from the CDTV to the drive. 
 Shift clock for serial subcode data output
@@ -86,14 +88,14 @@ Connected via a 74LS244 to the Controller chip
 
 ### 9 C16M - Pin 11 on A570
  Feeds into LC7883M D/A Converter pin 24  
- Feeds from LC7883M D/A Converter pin 25 via 100k resistor  
+ Also into LC7883M D/A Converter pin 25 via 100k resistor  
  16MHz clock.
 ### 11 XAEN  - Pin 13 on A570
 This is connected to the MN188161 Microprocessor pin 45 (PI4)
 My suspicion is that this is related to the XTA "AEN" signal which (and this took a lot of hunting down) is defined as follows:  
 ```Now the DMA controller has control of the bus, it presents the memory address on the address bus and asserts AEN, which signals to IO devices not involved in the DMA transfer to disregard the bus cycle```
 
-This may not be correct however, my secondary guess is it's "eXternal Audio ENable", ie U62 has requested music be played from a CD. 
+I believe this is not used. According to my sources the cdtv.device sets all of the "B" Port as outputs, this is connected to PB3 via R73, a 4.7K pull up to VCC. It is however at the same time very, very clearly an output *FROM* the drive. As it is being driven from "both sides" and its state not being checked by anything I'm going to ignore it. 
 
 ### 13 AEMP - Pin 15 on A570
  Feeds into LC7883M D/A Converter pin 15 from the M50422P CD Digital DSP pin 3
@@ -107,7 +109,7 @@ This emphasis feature was the biggest reason why different CD players sounded di
 
 Producers and engineers started turning off the emphasis switches. Converters were getting better so there was less converter noise, and the use of de-emphasis circuits was eliminated.
 ```
-According to the datasheet for the LC7883M this pin should do nothing as the chip is configured for serial data control.
+According to the datasheet for the LC7883M this pin should do nothing as the chip is configured for serial data control. My suspicion is that this too does nothing.
 
 I don't believe there are any CDs made in the last 30 years that use pre-emphasis during mastering (and hence need de-emphasis), this is I think a full list of CD's that actually used it... 
 https://www.studio-nibble.com/cd/index.php?title=Pre-emphasis_(release_list)
