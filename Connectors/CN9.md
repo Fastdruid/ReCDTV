@@ -25,7 +25,7 @@ I/O is in relation to the CDTV, so O is from CDTV to drive, I is Drive to CDTV, 
 3. EFFK [I] (EFM Frame clock output duty = 50%)
 4. SCCK [O] (Shift clock for serial subcode data output)
 5. SBCP [I] (Subcode Pch output Pch~Wch serial data output)
-6. SCOR [I] (Subcode sync output S0+s1) 
+6. SCOR [I] (Signal Composite Optical Read) - Subcode syncs output to S0+s1
 7. GND
 8. GND
 9. C16M [I] (16MHz DAC and LC8951 Clock)
