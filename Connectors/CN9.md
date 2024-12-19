@@ -239,7 +239,7 @@ Command         Hex code                # bytes Resp.   Note
 ===========================================================================
 
 Seek            01  M  S  F  0  0  0          1
-Read            02 ss ss ss ll ll 00            ss=24 bit start sector, ll=26 bit number of sectors to read
+Read            02 ss ss ss ll ll 00            ss=24 bit start sector, ll=16 bit number of sectors to read
 Motor on        04
 Motor off       05
 Play (LSN)      09
