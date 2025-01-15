@@ -72,24 +72,28 @@ I/O is in relation to the CDTV, so O is from CDTV to drive, I is Drive to CDTV, 
 ### 3 EFFK - Pin 5 on A570
 This is connected to the MN188161 Microprocessor.
 This is for the Subcode or subchannel data
-EFM Frame clock output duty = 50%
+EFM Frame clock output duty = 50%  
+This is output directly from the M50423FP CD DSP  
 This is ~7.35kHz while a CD is spinning and ~9.05kHz when its not. 
 ### 4 SCCK - Pin 6 on A570
 This is an clock for the Subcode or subchannel data. Passed from the CDTV to the drive. 
-Shift clock for serial subcode data output
+Shift clock for serial subcode data output. This is a 8 pulses at CCK frequency sync'd to EFFK.
+This is a direct input to the M50423FP CD DSP
 ### 5 SBCP - Pin 7 on A570
 This is for the Subcode or subchannel data
-Subcode Pch output Pch~Wch serial data output  
+Subcode Pch output Pch~Wch serial data output.  
+This is output directly from the M50423FP CD DSP
+Interestingly this is actually parallel "P" that is then modified by the addition of SCCK. Without SCCK you'll just get P
 ### 6 SCOR - Pin 8 on A570
-This is for the Subcode or subchannel data
-Subcode sync output S0+s1  
-This triggers an level 2 interrupt every frame. This is essential to the cdtv.device.
-Connected via a 74LS244 to the Controller chip 
+This is Subcode sync output S0+S1, it generates a signal on hitting the sync subcode at the start of every sector.   
+This generates a signal every 1/75 of a second for a single speed drive.   
+This is essential to the cdtv.device as this triggers an level 2 interrupt.   
+Connected via a 74LS244 to the M50423FP CD DSP  
 
 ### 9 C16M - Pin 11 on A570
  Feeds into LC7883M D/A Converter pin 24  
  Also into LC7883M D/A Converter pin 25 via 100k resistor  
- 16MHz clock.
+ 16.934MHz clock.
 ### 11 XAEN  - Pin 13 on A570
 This is connected to the MN188161 Microprocessor pin 45 (PI4)
 My suspicion is that this is related to the XTA "AEN" signal which (and this took a lot of hunting down) is defined as follows:  
@@ -113,11 +117,13 @@ According to the datasheet for the LC7883M this pin should do nothing as the chi
 
 I don't believe there are any CDs made in the last 30 years that use pre-emphasis during mastering (and hence need de-emphasis), this is I think a full list of CD's that actually used it... 
 https://www.studio-nibble.com/cd/index.php?title=Pre-emphasis_(release_list)
- 
-### 14 DATA - Pin 16 on A570
 
-pin 67
- Digital Audio Data using I²S
+## Audio
+
+The audio from the drive is I2S, somewhat curiously its actually 16bit in 24 bit frames. This is a bit of an awkward layout as more modern stuff does 16 bit in 32 bit frames. 
+
+### 14 DATA - Pin 16 on A570
+ 16 bit Digital Audio Data using I²S
  Feeds into LC7883M D/A Converter pin 6 from the M50422P CD Digital DSP pin 67. Also connected to LC8951
  Bit serial from MSB
 ### 15 LRCLK - Pin 17 on A570
@@ -127,12 +133,12 @@ pin 67
  LRCK = "H" CH1    
  LRCK = "L" CH2    
 ### 16 BCLK - Pin 19 on A570
- Digital Audio Data using I²S
+ 24 bit Digital Audio Data Bit Clock using I²S
  Feeds into LC7883M D/A Converter pin 5  
  Bit CLK   
 ### 17 MUTE (N/C) - Pin 19 A570 (CDMUTE)
   Mute Audio... Not used on the CDTV but is connected on the A570 where its from the drive. 
-  I had presumed this to be a signal from the CDTV to the drive *TO* mute audio but now I believe it to be the other way round, a signal that audio has been muted. 
+  This is a signal that audio has been muted, or rather automatically sets muted when audio is not playing. 
    
 ### 19 INAC
  Indicator LED. 
@@ -150,7 +156,7 @@ According to the datasheet the function depends on the state of the SELDRQ input
 1. When SELDRQ is HIGH (that is, during software transfer mode), the LS8950 sets the WAIT output to LOW to signal the host to suspend the data transfer. WAIT is held high while DTEN is HIGH, and while the LC8950 is not transferring data to the host.
 2. When SELDRQ is LOW (that is, during DMA transfer mode), WAIT functions as a DRQ (Data Request) output to the host computer. WAIT remains LOW while DTEN is HIGH, and while the LC8951 is not transfering data to the host.
 
-It is presumed that the CDTV uses option 2 both from the name as well as the use of the DMAC and based on the design of the A570 where SELDRQ is held LOW via a 6.8K resistor to ground.
+It is ~presumed~ confirmed that the CDTV uses option 2 both from the name as well as the use of the DMAC and based on the design of the A570 where SELDRQ is held LOW via a 6.8K resistor to ground.
 
 ### 23 *HWR
  Connects to the LC8951 on the drive - Host Data Write Input (why not Host Write Ready?)
@@ -300,7 +306,7 @@ This is an 8 bit status code consisting of the following bits.
 
 ## Digital Audio
 
-The CDTV sends two channel digital audio from the CDROM to LC7883M D/A, this requires three connections.
+The CDTV sends two channel 16 bit digital audio at 44.1kHz sample rate packed into 24 bit frames from the CDROM to LC7883M D/A,  this requires three connections.
 1. Serial clock (SCK),[1] a.k.a. bit clock (**BCLK**).[3]
 2. Word select (WS);[1] a.k.a. left-right clock (**LRCLK**)[3] or frame sync (FS).[4]; 0 = Left channel, 1 = Right channel[1]
 3. Serial data (SD),[1] a.k.a. **DATA**, SDATA, SDIN, SDOUT, DACDAT, ADCDAT[3]
@@ -311,6 +317,10 @@ This doesn't deserve its own page but needed somewhere for it.
 
 ## Description 
 
+While this is labled in the schematics as "CDROM INTERFACE CD AUDIO" this does not carry audio and instead this is a bidirectional serial connection to allow control of playing Audio CD's outside of software control by the Amiga/CDTV. 
+
+## Physical connector
+
 Commodore P/N 252616-03 HEADER ASSY 3 PIN 2 PITCH  
 I believe these to be using Molex 51004 series connectors, the 53014, 53015 and 53025 are the corresponding matching headers, this is therefore presumed to be a Molex 53014-0310, the right angle version (used on the CDROM) is probably a Molex 53015-0310 (53025 is a "through board" type connector).
 A Molex 51004-0300 would plug into it which uses 50011-8000 crimp terminals.  
@@ -319,15 +329,25 @@ Unfortunately all except the 50011-8000 crimp terminals are obsolete and NLA
 
 ## Pinout [I/O] (Guessed description)
 
-While this is labled in the schematics as "CDROM INTERFACE CD AUDIO" I don't think this carries audio and instead think this is I²C to allow control of playing Audio CD's outside of software control by the Amiga/CDTV. 
-
-1. SCK [U] 
-2. SDATA [U]
-3. GND [U]
+1. SCK [O] 
+2. SDATA [B]
+3. GND
 
 These connect to SBT and SBI on the MN188161 which are described as 
 1. SBT - Sync. Serial interface clock I/O pin.
 2. SMI - Sync. Serial interface data input pin. 
+
+## Data
+The clock for this is generated from U62. Output (from U62) is an entire SCK clock cycle while input is only half a clock cycle.
+When no buttons are pressed there is an "idle" signal sent.
+The follow buttons have been noted.
+1. IDLE 0000100
+2. STOP 0110000
+3. PLAY 1000000
+4. REW  0010000
+5. FF   0100000
+
+Theory on the front buttons is that when SDATA goes LOW then U62 is going to send a "command" on the next CLK. If it remains LOW after the command then it will go HIGH to indicate the drive can send data on the next 8 clock pulses on SCK. 
 
 # Sources
 
