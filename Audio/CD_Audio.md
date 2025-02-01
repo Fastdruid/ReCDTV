@@ -4,9 +4,9 @@ This is an attempt to understand the CD Audio on the CDTV
 
 ## I2S
 
-The CDTV uses 16 bit I2S with 24 bit frames. The LSB is extended to 8 bits long. 
-BCLK runs at 2.1168MHz (44.1KHz sample rate * 2 channels * 24 bit)
-LCLK runs at 44.1KHz
+The CDTV uses 16 bit I2S with 24 bit frames. The LSB is extended to 8 bits long.   
+BCLK runs at 2.1168MHz (44.1KHz sample rate * 2 channels * 24 bit).   
+LCLK runs at 44.1KHz.  
 
 
 
