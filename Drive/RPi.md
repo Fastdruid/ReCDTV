@@ -42,7 +42,7 @@ Obviously these directions are reversed for the RPi!
 |  |  |  |  | 29 | EOP | NC/I |
 
 #### RPi
-The RPi has PCM Digital audio (Noice!)  
+The RPi has PCM Digital audio (Noice!)  Unfortunately it can only do 16 or 32 bit frames. The CDTV requires 16 bit in 24 bit frames. 
 https://pinout.xyz/pinout/pcm  
 
 GPIO 19 (FS) "LRCLK"  
