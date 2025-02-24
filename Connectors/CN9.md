@@ -39,14 +39,14 @@ I/O is in relation to the CDTV, so O is from CDTV to drive, I is Drive to CDTV, 
 17. Mute [NC] (Mute signal).
 18. GND
 19. INAC [I] (Indicator Power/Status)
-20. STCH [I] (CD-Status bit 0?)
+20. STCH [I] (STatus Change)
 21. ENABLE [O] (CD-Data enable?)
 22. DRQ / WAIT [I] (Data ReQuest?? )
 23. HWR [O] (Host Write Request? - Signals to the drive that command bursts are to be sent)
 24. GND
-25. DTEN [I] (CD-Status bit 1?)
-26. HRD [O] (Host Read Request? )
-27. STEN [I] (CD-Status bit 2?)
+25. DTEN [I] (DaTa ENable? - Data data strobe )
+26. HRD [O] (Host Read Data Request? )
+27. STEN [I] (STatus ENable? - Status data strobe)
 28. CMD [O] (CD-Status / Data enable?)
 29. EOP [NC - I] (End-of-Process)
 31. GND
@@ -157,24 +157,29 @@ According to the datasheet the function depends on the state of the SELDRQ input
 2. When SELDRQ is LOW (that is, during DMA transfer mode), WAIT functions as a DRQ (Data Request) output to the host computer. WAIT remains LOW while DTEN is HIGH, and while the LC8951 is not transfering data to the host.
 
 It is ~presumed~ confirmed that the CDTV uses option 2 both from the name as well as the use of the DMAC and based on the design of the A570 where SELDRQ is held LOW via a 6.8K resistor to ground.
+It is presumed that data is considered valid on the falling edge of DRQ.
+This is only used for proper data data. 
 
 ### 23 *HWR
  Connects to the LC8951 on the drive - Host Data Write Input (why not Host Write Ready?)
  ``` The host interface also has a built in 8-byte FIFO command buffer to recieve instructions from the host computer. When the host signals the LC8951 using the HWR pin, command bursts of up to eight bytes in length can be written to the the buffer. When the host writes to the command buffer the LC8950 sends a command interrupt to the controller. Note, however, that the LC8951 itself does not interpret commands written to the command buffer.```
 
 ### 25 DTEN
- Connects to the LC8951 on the drive - Data Enable Output.  
+ Connects to the LC8951 on the drive - DaTa ENable Output.  
  Informs the host that data transfer will start.
  This output is set to LOW to signal the host computer that data is ready to be transfered.
+ This appears to only be used for _actual_ data, none of the other requests use DTEN
+
 ### 26 *HRD
  Connects to the LC8951 on the drive - Host Data Read Input (Why not Host Read Data?) 
  If the read signals from the host exceed the LC8951 maximum data rate (about 2.3MB/s), the LC8951 sets the DRQ (WAIT) pin to LOW. The host must then hold HRD low to delay the read until the DRQ (WAIT) pin goes HIGH. 
 
 ### 27 STEN
-Connects to the LC8951 on the drive - Status Enable Output.  
+Connects to the LC8951 on the drive - STatus Enable Output.  
  ```The controller and the host perform handshaking using signals at the STEN pin```  
  This output is set to LOW to signal the host computer that the status byte is ready to be read out.  
- 
+Although the datasheet suggests this is only for the status byte this is used for _all_ the non-data data. So any command with the exception of 0x02 will use STEN as a data strobe.  
+  
 ### 28 *CMD
  Connects to the LC8951 on the drive - Host Command/Data select 
  When the host sees that DTEN is LOW it sets CMD to HIGH instructing the LC8951 to transfer successive bytes.  
