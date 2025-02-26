@@ -150,6 +150,9 @@ The audio from the drive is I2S, somewhat curiously its actually 16bit in 24 bit
  
 ### 21 *ENABLE
 ```To send a command the host computer sets the ENABLE and CMD pins to LOW and loads one or more command bites into the COMIN register (of the LC8951)```
+For data reads from the drive (ie result of an 0x02) ENABLE stays LOW the whole time.   
+For "status" reads from the drive (ie the result of every other command that returns "something") ENABLE is per byte.  
+
 
 ### 22 DRQ (WAIT)
 According to the datasheet the function depends on the state of the SELDRQ input, one of the two options
@@ -168,7 +171,7 @@ This is only used for proper data data.
  Connects to the LC8951 on the drive - DaTa ENable Output.  
  Informs the host that data transfer will start.
  This output is set to LOW to signal the host computer that data is ready to be transfered.
- This appears to only be used for _actual_ data, none of the other requests use DTEN
+ While this is only active for _actual_ data, this appears to not be used by the CDTV. 
 
 ### 26 *HRD
  Connects to the LC8951 on the drive - Host Data Read Input (Why not Host Read Data?) 
@@ -243,8 +246,7 @@ The CDTV was presumed to use a modified MKE interface... I'm not *entirely* sure
 
 It appears that MKE tailored each device, so while the Panasonic interface is undoubtedly similar its not the same. 
 
-Commands are 7 bytes long with the first byte being the command byte (upto??)
-
+Commands are 7 bytes long with the exception of 0x81 (single byte) the first byte being the command byte.
 ```
 Command         Hex code                # bytes Resp.   Note
 ===========================================================================
@@ -260,8 +262,8 @@ CD-ROM Status   81                              See status codes below
 Read Error?     82
 Model Name      83
 Select Mode 1/2 84 ?? sh sl 00 ?? 00            sh=sector size high byte (*256), sl=sector size low byte
-Read SubQ       87
-Volume summary  89                              
+Read SubQ       87               
+Volume summary  89                                  
 Read TOC        8a ml tt 00 00 00 00            ml=select MSF or LSN values, tt=track# to start from or 0 for volume summary
 Pause/Resume    8b pp 00 00 00 00 00            $80 or 0 will pause/unpause
 Front panel     a3 ed 00 00 00 00 00            Enable or disable I2C interface ($20 is enable, 0 is disable).
@@ -281,7 +283,13 @@ This is an 8 bit status code consisting of the following bits.
 #define MATSU_STATUS_DOORCLOSED ( 1 << 7 ) /* tray status */
 ```
 
-## Error codes (MKE) - CDTV Presumed similar
+## Error codes (PC MKE) - CDTV may have some similar
+If there is an error then the drive reports it to the CDTV by setting the error bit within the status byte. 
+On detecting the error status in the status byte the CDTV sends a 0x82 command which both clears the error and reports back 6 bytes. 
+The CDTV is only interested in bits 1 & 4 of byte 2. 
+
+Some of these may be similar. 
+
 ```
 00      No error
 01      Soft read error after retry
