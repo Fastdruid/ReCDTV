@@ -352,15 +352,21 @@ These connect to SBT and SBI on the MN188161 which are described as
 
 ## Data
 The clock for this is generated from U62. Output (from U62) is an entire SCK clock cycle while input is only half a clock cycle.
-When no buttons are pressed there is an "idle" signal sent.
-The follow buttons have been noted.
-1. IDLE 0000100
-2. STOP 0110000
-3. PLAY 1000000
-4. REW  0010000
-5. FF   0100000
+This reguarly sends what I've called "TRACK?". This is a request to the drive to return the current track. 
 
-Theory on the front buttons is that when SDATA goes LOW then U62 is going to send a "command" on the next CLK. If it remains LOW after the command then it will go HIGH to indicate the drive can send data on the next 8 clock pulses on SCK. 
+The follow commands have been noted.
+1. TRACK? 0000100
+2. STOP   0110000
+3. PLAY   1000000
+4. REW    0010000
+5. FF     0100000
+
+These commands are all debounced by U62, ie only a single command is ever sent per button press, they are not repeated. 
+When the "TRACK?" command is sent then U62 will wait and then after rougly 4.4ms pulse SCK for the drive to respond with an byte that reflects the track number. 
+To write to U62 the drive will wait for SDATA to go HIGH after the end of the series of SCK pulses, it will then set SDATA LOW and wait for SCK to pulse again and it will transfer the bits after the negative edge of SCK. 
+
+While an 8 bit number is sent by the drive only 7 bits are used, this allows 99 tracks with some oddities after 99.     
+0 is shown as blank.     
 
 # Sources
 
