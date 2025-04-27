@@ -283,38 +283,32 @@ This is an 8 bit status code consisting of the following bits.
 #define MATSU_STATUS_DOORCLOSED ( 1 << 7 ) /* tray status */
 ```
 
-## Error codes (PC MKE) - CDTV may have some similar
+## Error codes (CDTV Specific)
 If there is an error then the drive reports it to the CDTV by setting the error bit within the status byte. 
 On detecting the error status in the status byte the CDTV sends a 0x82 command which both clears the error and reports back 6 bytes. 
 The CDTV is only interested in bits 1 & 4 of byte 2. 
 
-Some of these may be similar. 
 
 ```
-00      No error
-01      Soft read error after retry
-02      Soft read error after error correction
-03      Not ready
-04      Cannot read TOC
-05      Hard read error
-06      Seek didn't complete
-07      Tracking servo failure
-08      Drive RAM error
-09      Self-test failed
-0a      Focusing servo failure
-0b      Spindle servo failure
-0c      Data path failure
-0d      Illegal logical block address
-0e      Illegal field in CDB
-0f      End of user encountered on this track ?
-10      Illegal data mode for this track
-11      Media changed
-12      Power-on or reset occured
-13      Drive ROM failure
-14      Illegal drive command from the host
-15      Disc removed during operation
-16      Drive hardware error
-17      Illegal request from host
+|    `00`    | "No error"                                    |
+|    `01`    | "Recovered data error with retry"             |
+|    `02`    | "Recovered data error with ECC"               |
+|    `03`    | "Drive not ready"                             |
+|    `04`    | "Unable to recover TOC"                       |
+|    `05`    | "Unrecovered track data error"                |
+|    `06`    | "Seek not complete"                           |
+|    `07`    | "Tracking servo error"                        |
+|    `08`    | "RAM failure"                                 |
+|    `09`    | "Power on diagnostic failure"                 |
+|    `0a`    | "Focusing servo failure"                      |
+|    `0b`    | "Spindle servo failure"                       |
+|    `0c`    | "Data path failure"                           |
+|    `0d`    | "Illegal logical block address"               |
+|    `0e`    | "Illegal field in CDB"                        |
+|    `0f`    | "End of user area encountered on this track"  |
+|    `10`    | "Illegal mode for this track"                 |
+|    `11`    | "Media changed"                               |
+|    `12`    | "Power on or reset occurred"                  |
 ```
 
 ## Digital Audio
