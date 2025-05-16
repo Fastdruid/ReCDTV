@@ -77,13 +77,14 @@ module cdtv (
      output wire EMC, // Enable Memory Card
      output wire ECD, // Enable CDROM Driver (ROM)
    
-  
-
-  
+ 
      // Other signals
+     input wire IFRST_n, // Interface reset. 
+     input wire AUPLY_n, // CD Audio play
+     input wire INTD_n, // CD Drive Reset
      input wire IFRST_n, // Interface Reset
      output wire INITB, // Initialise DAC
-     output wire DTACK_n, // 
+     output wire DTACK_n, // Data Transfer Acknowledge
   
   
 );
