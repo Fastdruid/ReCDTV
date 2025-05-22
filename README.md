@@ -66,6 +66,9 @@ There are some differences noted between the schematics/Service Manual and the a
 ## Differences from Original
 
 V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is not a perfect 1:1, locations have been made as close as possible but may differ slightly. I cannot guarantee anything that connects between multiple items will fit (eg the ROM developer board).
+There are however two changes that have been made. 
+1) A 5 pin connector by T1. This is because T1 is unobtainable and highly unlikely to be able to be removed from an original board. This connector therefore is to supply VF1, VPP and VF2 from +5VD using a separate board.
+2) The CONFIGIN/CONFIGOUT is fixed to the diagnostic socket. 
 
 All of the non-Commodore/Amiga unique parts have been sourced as far as they can. 
 
@@ -90,11 +93,11 @@ Routing is therefore "kind of" like the original where it can be up to a certain
 
 This will list "regular" parts that are NLA. 
 
-1) T1 - The transformer for the VFD power. This is both unavailable and almost certainly impossible to remove from a board without destroying it. 
+1) T1 - The transformer for the VFD power. This is both unavailable and almost certainly impossible to remove from a board without destroying it hence why there is a 5 pin connector to supply the required voltages. 
 2) CN1 - The DB23 video port. Very limited availability however a servicable replica can be created from a solder cup DB23 and a "cut-n-shut" DB25.
 3) CN4 - The DB23 floppy port. Very limited availability however a servicable replica can be created from a solder cup DB23 and a "cut-n-shut" DB25.
-4) U17 - Sanyo LC7883M - DAC. long since replaced with newer DACs so is NLA. I will try and find a like for like replacement.
-5) U16 - Mitsubishi M51568FP - Analog output amplifier. Again NLA. I will try and find a like for like replacement.
+4) U17 - Sanyo LC7883M - DAC. long since replaced with newer DACs so is NLA. While I have tried to find a like for like replacement EIAJ DACs are NLA and the CDTV makes use of the "volume" on the LC7883M to mute/fade under software control. These are *sometimes* seen on aliexpress (I've managed to buy two).
+5) U16 - Mitsubishi M51568FP - Analog output amplifier. Again NLA. I have not found a replacement but these do again turn up occasionally. I managed to pick one up from ebay. 
 
 ### Connectors
 #### CN26, CN17B, CN18 - 3 way
