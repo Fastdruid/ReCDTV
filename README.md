@@ -1,6 +1,16 @@
 # ReCDTV
 ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.1
 
+## Revisions
+There are a number of "known" revisions of the CDTV, this is based off the 2.2.1 because that's what I have! The following lists all the revisions I "know" of. Please feel free to raise an "issue" if you know of more or have any detail about the differences! 
+
+1) Board REV 2.1 - Known dev system, seen with piggyback U62 & U75
+2) Board REV 2.2 - With fix wires marked as REV 2.2A
+3) Board REV 2.2 - With fix wires marked as REV 2.2B
+4) Board REV 2.2 - With fix wires marked as REV 2.3
+5) Board REV 2.3 - Sticker over original silkscreen. With fewer fix wires. 
+6) Board REV 2.2.1 - No fix wires. 
+
 ## Status
 
 Alpha. :)
