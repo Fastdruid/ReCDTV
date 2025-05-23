@@ -4,7 +4,7 @@ ReCDTV is an Open Hardware remake of the Commodore CDTV mainboard, revision 2.2.
 ## Status
 
 Alpha. :)
-Board is "complete", all components, everything routed and currently in validation phase. I'm slowly validating every chip and component on the board. 
+Board is "complete", all components, everything routed and currently in validation phase. I'm slowly validating every chip and component on the board. Roughly 60% through validation of every IC. 
 
 ![image](https://github.com/user-attachments/assets/502022f9-04ee-4fac-bb75-5acfeada67f8)
 
@@ -45,7 +45,7 @@ There are some differences noted between the schematics/Service Manual and the a
 15) U24 pin 5 goes to U37 pin 5 instead of U17 pin 12.
 16) U37 pin 6 goes to U17 pin 12 (joined to U37 pin 2 via JP15/18)
 17) U24 pins 4 & 5 are grounded (minor issue as these are unused OR gates but its not shown)
-18) U26 pins 3,11 & 13 are grounded (minor issue as these are unused intvertes but its not shown)
+18) U26 pins 3,11 & 13 are grounded (minor issue as these are unused inverters but its not shown)
 19) R48 and R49 are swapped. So U27 pin 6 goes to R49 not R48.
 20) U39 Pin 1 is labeled as EPO.{CSX1} but U36 Pin 1 has it as EOP.{CSX1}
 21) RP25 pin 3 is not connected to U77 pin 16 (this is signal *BUDS which is labled NC so this is not important)
@@ -120,6 +120,7 @@ Molex 530150310 (53015-0310) - Available still on Aliexpress
 4) Swap to SMD cap & resistor setup (like the A1200).
 5) Use a single chip for 2MB of memory
 6) Allow a 2MB 8375 Agnus to be used. 
+7) Add Fast RAM expansion using DMAC functionality (as the A590 does).
 
 ## Other things of note. 
 
