@@ -33,11 +33,11 @@ There are some differences noted between the schematics/Service Manual and the a
 3) EMI86 isn't actually shown as being used on PRDT (just a random "EMI" shown). 
 4) RP23 & RP24 don't exist on the Rev 2.2.1 board (although there appear to be locations for them).
 5) It appears that the pins 6/5/4 and 8/9/10 are transposed on U23. EMC is connected to pin 9 not 5, *ROMEN is connected to 8 not 5, 6 & 5 are joined and pin 4 rather than 10 are connected to U13 pin 12 (*OE)
-6) U38 pin 8 is not connected to U63 pin 13 (this appears to be one of the fixed on Rev 2.3) - I've not yet validated what is actually connected.
-7) U38 pin 1 is not connected to U63 pin 12 (this appears to be one of the fixed on Rev 2.3) - I've not yet validated what is actually connected.
+6) U38 pin 8 is not connected to U63 pin 13 (this appears to be one of the fixed on Rev 2.3) - connected instead to U63 pin 9. Same functionality, different gate!
+7) U38 pin 1 is not connected to U63 pin 12 (this appears to be one of the fixed on Rev 2.3) - connected instead to U63 pin 8. Same functionality, different gate!
 8) DMAC CFGOUT is connected to ground. 
-9) (Reportedly) Only one of two CPU VCC are connected! - Not verified however both are connected on this board.
-10) Inverter 4 on U63 is shown on the schematics as grounded/unused. It's not. - I've not yet validated what is actually connected.
+9) (Reportedly) Only one of two CPU VCC are connected! - Not verified however both are connected on this re-board.
+10) Inverter 4 (pin 9->10) on U63 is shown on the schematics as grounded/unused. It's not but is swapped with inverter 6 (13->12).
 11) C88 & C89 are not listed in the parts list. C89 is repeated twice, once on page 2 and once on page 3.
 12) C5 is repeated twice in the parts list. The actual capacitor fitted is a CBM P/N 900022-01 - "MLC RAD .22uF 50V"
 13) The .22uF capacitors for U78 and U79 are not labled in the schematic. Presumed (due to proximity) to be C159 & C182
