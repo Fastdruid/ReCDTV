@@ -9,7 +9,8 @@ There are a number of "known" revisions of the CDTV, this is based off the 2.2.1
 3) Board REV 2.2 - With fix wires marked as REV 2.2B
 4) Board REV 2.2 - With fix wires marked as REV 2.3
 5) Board REV 2.3 - Sticker over original silkscreen. With fewer fix wires. 
-6) Board REV 2.2.1 - No fix wires. 
+6) Board REV 2.2.1 - No fix wires.
+7) Board REV 2.2.1 - Marked as REV 2.2C. No visible fix wires. Looks like an extra resistor fitted from GND to something around the top corner of U75.
 
 ## Status
 
