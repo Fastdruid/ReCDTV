@@ -117,6 +117,8 @@ All except unless mentioned are solder jumpers.
 * JP15/JP18) Normally closed. Connects INITB on U17 to U37. 
 * JP16) Normally open. Connects A18 to pin 39 of CN13
 * JP17) Normally open. Connects A19 to pin 40 of CN13
+* JP19) Normally closed. Connects DMAC /CONFIGIN to ground. Cut to revert to original behaviour (DMAC /CONFIGOUT floating). 
+* JP20) Four way jumper. Connects pins 2-3 which is DMAC /CONFIGOUT to CN12 CONFIGIN. Solder across all 4 pins to revert to original behaviour. 
 
 ## Commodore chips required.
 
