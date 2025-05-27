@@ -99,24 +99,24 @@ Routing is therefore "kind of" like the original where it can be up to a certain
 
 All except unless mentioned are solder jumpers. 
 
-JP1) Normally Open. Connects /EXRAM to ground.
-JP2) N/A
-JP3) Double Jumper. Normally connects /INT2 to DMAC. Can instead connect /INT6.
-JP4) Double Jumper. Normally connects A19 (pin 59) from Agnus to A19. Can instead connect A23.
-JP5) Normally closed. Selects 
-JP6) Double Jumper. Normally connects BRW to pin 21 of a 24 pin U78 but can connect A12 to pin 23 (same physical pin, just number shifted) if a 28 pin SRAM chip is fitted. 
-JP7) Double Jumper. Normally connects BRW to pin 21 of a 24 pin U79 but can connect A12 to pin 23 (same physical pin, just number shifted) if a 28 pin SRAM chip is fitted.
-JP8) Double jumper. Connects NTSC or PAL crystal to Agnes. 
-JP9) Normally open on PAL machines. Selects NTSC/PAL power for PAL crystal.
-JP10) Normally closed on PAL machines. Selects NTSC/PAL for NTSC crystal.
-JP11) Normally open on PAL machines. Selects NTSC/PAL for Agnes. 
-JP12) N/A
-JP13) Normally closed. Connects C16M from the drive to the DAC. 
-JP14) Double jumper. Both normally closed. Connects audio to the headphone socket.
-JP15) Double pin jumper. Direction doesn't matter. Connects /CSCD and enables the CDTV functionality. 
-JP15/JP18) Normally closed. Connects INITB on U17 to U37. 
-JP16) Normally open. Connects A18 to pin 39 of CN13
-JP17) Normally open. Connects A19 to pin 40 of CN13
+* JP1) Normally Open. Connects /EXRAM to ground.
+* JP2) N/A
+* JP3) Double Jumper. Normally connects /INT2 to DMAC. Can instead connect /INT6.
+* JP4) Double Jumper. Normally connects A19 (pin 59) from Agnus to A19. Can instead connect A23.
+* JP5) Normally closed. Selects 
+* JP6) Double Jumper. Normally connects BRW to pin 21 of a 24 pin U78 but can connect A12 to pin 23 (same physical pin, just number shifted) if a 28 pin SRAM chip is fitted. 
+* JP7) Double Jumper. Normally connects BRW to pin 21 of a 24 pin U79 but can connect A12 to pin 23 (same physical pin, just number shifted) if a 28 pin SRAM chip is fitted.
+* JP8) Double jumper. Connects NTSC or PAL crystal to Agnes. 
+* JP9) Normally open on PAL machines. Selects NTSC/PAL power for PAL crystal.
+* JP10) Normally closed on PAL machines. Selects NTSC/PAL for NTSC crystal.
+* JP11) Normally open on PAL machines. Selects NTSC/PAL for Agnes. 
+* JP12) N/A
+* JP13) Normally closed. Connects C16M from the drive to the DAC. 
+* JP14) Double jumper. Both normally closed. Connects audio to the headphone socket.
+* JP15) Double pin jumper. Direction doesn't matter. Connects /CSCD and enables the CDTV functionality. 
+* JP15/JP18) Normally closed. Connects INITB on U17 to U37. 
+* JP16) Normally open. Connects A18 to pin 39 of CN13
+* JP17) Normally open. Connects A19 to pin 40 of CN13
 
 ## Commodore chips required.
 
