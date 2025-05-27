@@ -83,10 +83,11 @@ There are some differences noted between the schematics/Service Manual and the a
 ## Differences from Original
 
 V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is not a perfect 1:1, locations have been made as close as possible but may differ slightly. I cannot guarantee anything that connects between multiple items will fit (eg the ROM developer board).
-There are however three changes that have been made. 
+There are however a few changes that have been made. 
 1) A 5 pin connector by T1. This is because T1 is unobtainable and highly unlikely to be able to be removed from an original board. This connector therefore is to supply VF1, VPP and VF2 from +5VD using a separate board.
 2) The CONFIGIN/CONFIGOUT is fixed to the diagnostic socket. Pin 6 is "/CONFIGIN" for the next device and connected to /CONFIGOUT of DMAC. DMAC has /CONFIGIN connected to GND so that it is the first device configured. /CONFIGOUT on the diagnostic socket is left floating. In case there is something reliant on the previous behaviour there are two new solder jumpers that let you revert to the incorrect behaviour! 
-3) The Kickstart ROM is changed to a 42 pin. Same connectivity as A500 rev 8. 
+3) The Kickstart ROM is changed to a 42 pin. Same connectivity as A500 rev 8.
+4) The duplicate JP15 is named JP18. 
 
 All of the non-Commodore/Amiga unique parts have been sourced as far as they can. 
 
