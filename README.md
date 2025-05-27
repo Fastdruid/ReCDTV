@@ -68,6 +68,7 @@ There are some differences noted between the schematics/Service Manual and the a
 27) On page 10 U32 is shown (and listed in the spare parts list) as a 3MHz 6525B. On all CDTV's seen however a 2MHz 6525A is used.
 28) On U60 pins 3 & 7 are swapped (*INCD and *CD/TV)
 29) RP27 is labeled in different places with Pin 1 to VCC and pin 1 to +5VD. Its +5VD.
+30) Schematic shows a 6525B while the only chip I've seen fitted in any pictures is a 6525A. 
 
 ## Known issues
 
@@ -77,9 +78,10 @@ There are some differences noted between the schematics/Service Manual and the a
 ## Differences from Original
 
 V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is not a perfect 1:1, locations have been made as close as possible but may differ slightly. I cannot guarantee anything that connects between multiple items will fit (eg the ROM developer board).
-There are however two changes that have been made. 
+There are however three changes that have been made. 
 1) A 5 pin connector by T1. This is because T1 is unobtainable and highly unlikely to be able to be removed from an original board. This connector therefore is to supply VF1, VPP and VF2 from +5VD using a separate board.
-2) The CONFIGIN/CONFIGOUT is fixed to the diagnostic socket. 
+2) The CONFIGIN/CONFIGOUT is fixed to the diagnostic socket.
+3) The Kickstart ROM is changed to a 42 pin. Same connectivity as A500 rev 8. 
 
 All of the non-Commodore/Amiga unique parts have been sourced as far as they can. 
 
@@ -127,11 +129,12 @@ Molex 530150310 (53015-0310) - Available still on Aliexpress
 
 1) Swap to SMD versions of all 74 chips.
 2) Remove U28 and use the other "half" of U24 instead.
-3) Use a CPLD to replace the massive numbers of 74 chips (as the A590 does).
+3) Use a CPLD to replace the massive numbers of 74 chips (as the A570 does).
 4) Swap to SMD cap & resistor setup (like the A1200).
 5) Use a single chip for 2MB of memory
 6) Allow a 2MB 8375 Agnus to be used. 
-7) Add Fast RAM expansion using DMAC functionality (as the A590 does).
+7) Add Fast RAM expansion using DMAC functionality (as the A570 does).
+8) Use a single ROM for the CDTV OS. 
 
 ## Other things of note. 
 
