@@ -99,10 +99,10 @@ module cdtv (
     U50 (3-to-8 line decoder/demultiplexer, inverting outputs)
     */
 
-    assign CSMC_n = ~(A23 & A22 & A21 & ~A20);  // Generate CMSC_n, Range 0xE00000 to 0xEFFFFF
-    assign CSCD_n = ~(A23 & A22 & A21 & A20);  // Genarate CSCD_n, Range 0xF00000 to 0xFFFFFF
-    assign CSNV_n = ~((A23 & A22 & ~A21 A20 ) & A19 & A18 & ~A17 & ~A16 & A15 & ~A14); // Generate CMSC_n, Range 0xDC8000 to 0xDCBFFF
-    assign CSRV_n = ~((A23 & A22 & ~A21 A20 ) & A19 & A18 & ~A17 & ~A16 & ~A15);              // Generate CMSC_n, Range 0xDC0000 to 0xDC7FFF
+    assign CSMC_n = ~(A23 & A22 & A21 & ~A20);  // Generate CMSC_n, Range 0xE00000 to 0xEFFFFF - for Memory Card.
+    assign CSCD_n = ~(A23 & A22 & A21 & A20);  // Genarate CSCD_n, Range 0xF00000 to 0xFFFFFF - for CD
+    assign CSNV_n = ~((A23 & A22 & ~A21 A20 ) & A19 & A18 & ~A17 & ~A16 & A15 & ~A14); // Generate CMNV_n, Range 0xDC8000 to 0xDCBFFF - for NVRAM
+    assign CSRV_n = ~((A23 & A22 & ~A21 A20 ) & A19 & A18 & ~A17 & ~A16 & ~A15);       // Generate CMRV_n, Range 0xDC0000 to 0xDC7FFF - for RTC
     
     /* 
     This replaces
