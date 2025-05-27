@@ -46,34 +46,38 @@ There are some differences noted between the schematics/Service Manual and the a
 5) It appears that the pins 6/5/4 and 8/9/10 are transposed on U23. EMC is connected to pin 9 not 5, *ROMEN is connected to 8 not 5, 6 & 5 are joined and pin 4 rather than 10 are connected to U13 pin 12 (*OE)
 6) U38 pin 8 is not connected to U63 pin 13 (this appears to be one of the fixed on Rev 2.3) - connected instead to U63 pin 9. Same functionality, different gate!
 7) U38 pin 1 is not connected to U63 pin 12 (this appears to be one of the fixed on Rev 2.3) - connected instead to U63 pin 8. Same functionality, different gate!
-8) DMAC CFGOUT is connected to ground. 
-9) (Reportedly) Only one of two CPU VCC are connected! - Not verified however both are connected on this re-board.
-10) Inverter 4 (pin 9->10) on U63 is shown on the schematics as grounded/unused. It's not but is swapped with inverter 6 (13->12).
-11) C88 & C89 are not listed in the parts list. C89 is repeated twice, once on page 2 and once on page 3.
-12) C5 is repeated twice in the parts list. The actual capacitor fitted is a CBM P/N 900022-01 - "MLC RAD .22uF 50V"
-13) The .22uF capacitors for U78 and U79 are not labled in the schematic. Presumed (due to proximity) to be C159 & C182
-14) U37 is shown in the schematic as having pins 1,5 & 11 grounded. Only 11 is, Pins 2 & 6 connect to either side of JP15 which is alternately labeled JP18 on someone elses Rev 2.2.1 board! JP18/15 is not on Rev 2.1, 2.2, 2.2A, 2.2B or 2.3, not mentioned in the schematics and JP15 in them is totally different.
-15) U24 pin 5 goes to U37 pin 5 instead of U17 pin 12.
-16) U37 pin 6 goes to U17 pin 12 (joined to U37 pin 2 via JP15/18)
-17) U24 pins 4 & 5 are grounded (minor issue as these are unused OR gates but its not shown)
-18) U26 pins 3,11 & 13 are grounded (minor issue as these are unused inverters but its not shown)
-19) R48 and R49 are swapped. So U27 pin 6 goes to R49 not R48.
-20) U39 Pin 1 is labeled as EPO.{CSX1} but U36 Pin 1 has it as EOP.{CSX1}
-21) RP25 pin 3 is not connected to U77 pin 16 (this is signal *BUDS which is labled NC so this is not important)
-22) RP25 pin 4 is not connected to U77 pin 18 (this is signal *BLDS which is labled NC so this is not important)
-23) R143 is not shown in the schematic but is connected between VPP and GND
-24) D7 doesn't appear anywhere in the schematics.
-25) On the Rev 2.2.1 boards Pin 19, the "MODE" pin on the LC7883 (U17) is not connected to ground...or VCC. I have no idea what (if anything) it is connected to. This is problematic as the datasheet says it should be either H or L and says nothing on if it's floating. There is a possibility that it's actually got an internal Pull Down but it is not clear. On the Rev 2.2 boards it *is* connected to gnd (obvious from photos). Also AEMP is connected to EMPH1 however if MODE is Low then EMPH1 should be "fixed to H or L". I have my suspicions that this is an undocumented feature.
-26) On page 11 CDAL/AUDR is shown as going to/from page 4,5 while CDAR/AUDL is shown going to/from page 4. In reality AUDL/AUDR comes from page 4,5 and CDAR/CDAL goes to page 4
-27) On page 10 U32 is shown (and listed in the spare parts list) as a 3MHz 6525B. On all CDTV's seen however a 2MHz 6525A is used.
-28) On U60 pins 3 & 7 are swapped (*INCD and *CD/TV)
-29) RP27 is labeled in different places with Pin 1 to VCC and pin 1 to +5VD. Its +5VD.
-30) Schematic shows a 6525B while the only chip I've seen fitted in any pictures is a 6525A.
-31) Pin 15 and pin 16 on CN12 are swapped. Pin 15 is /INT6, Pin 16 is A5
+8) DMAC /CONFIGOUT is grounded.
+9) DMAC /CONFIGIN is not grounded and is floating.
+10) CN12 CONFIGOUT is grounded. 
+11) (Reportedly) Only one of two CPU VCC are connected! - Not verified however both are connected on this re-board.
+12) Inverter 4 (pin 9->10) on U63 is shown on the schematics as grounded/unused. It's not but is swapped with inverter 6 (13->12).
+13) C88 & C89 are not listed in the parts list. C89 is repeated twice, once on page 2 and once on page 3.
+14) C5 is repeated twice in the parts list. The actual capacitor fitted is a CBM P/N 900022-01 - "MLC RAD .22uF 50V"
+15) The .22uF capacitors for U78 and U79 are not labled in the schematic. Presumed (due to proximity) to be C159 & C182
+16) U37 is shown in the schematic as having pins 1,5 & 11 grounded. Only 11 is, Pins 2 & 6 connect to either side of JP15 which is alternately labeled JP18 on someone elses Rev 2.2.1 board! JP18/15 is not on Rev 2.1, 2.2, 2.2A, 2.2B or 2.3, not mentioned in the schematics and JP15 in them is totally different.
+17) U24 pin 5 goes to U37 pin 5 instead of U17 pin 12.
+18) U37 pin 6 goes to U17 pin 12 (joined to U37 pin 2 via JP15/18)
+19) U24 pins 4 & 5 are grounded (minor issue as these are unused OR gates but its not shown)
+20) U26 pins 3,11 & 13 are grounded (minor issue as these are unused inverters but its not shown)
+21) R48 and R49 are swapped. So U27 pin 6 goes to R49 not R48.
+22) U39 Pin 1 is labeled as EPO.{CSX1} but U36 Pin 1 has it as EOP.{CSX1}
+23) RP25 pin 3 is not connected to U77 pin 16 (this is signal *BUDS which is labled NC so this is not important)
+24) RP25 pin 4 is not connected to U77 pin 18 (this is signal *BLDS which is labled NC so this is not important)
+25) R143 is not shown in the schematic but is connected between VPP and GND
+26) D7 doesn't appear anywhere in the schematics.
+27) On the Rev 2.2.1 boards Pin 19, the "MODE" pin on the LC7883 (U17) is not connected to ground...or VCC. I have no idea what (if anything) it is connected to. This is problematic as the datasheet says it should be either H or L and says nothing on if it's floating. There is a possibility that it's actually got an internal Pull Down but it is not clear. On the Rev 2.2 boards it *is* connected to gnd (obvious from photos). Also AEMP is connected to EMPH1 however if MODE is Low then EMPH1 should be "fixed to H or L". I have my suspicions that this is an undocumented feature.
+28) On page 11 CDAL/AUDR is shown as going to/from page 4,5 while CDAR/AUDL is shown going to/from page 4. In reality AUDL/AUDR comes from page 4,5 and CDAR/CDAL goes to page 4
+29) On page 10 U32 is shown (and listed in the spare parts list) as a 3MHz 6525B. On all CDTV's seen however a 2MHz 6525A is used.
+30) On U60 pins 3 & 7 are swapped (*INCD and *CD/TV)
+31) RP27 is labeled in different places with Pin 1 to VCC and pin 1 to +5VD. Its +5VD.
+32) Schematic shows a 6525B while the only chip I've seen fitted in any pictures is a 6525A.
+33) Pin 15 and pin 16 on CN12 are swapped. Pin 15 is /INT6, Pin 16 is A5
+
 
 ## Known issues
 
 1) The serial->parallel shift register for the subcode is backwards so the CD+G library has to use a lookup table to reverse everything!
+2) DMAC /CONFIGIN and /CONFIGOUT.... so on something like the A2000 the first /CONFIGIN on the Zorro bus is grounded, each PIC in turn will autoconfigure itself and then bring its /CONFIGOUT LOW which then sets /CONFIGIN LOW for the next PIC in turn to do the same. DMAC is setup to do this with a /CONFIGIN and a /CONFIGOUT. On the CDTV /CONFIGIN is left floating and /CONFIGOUT is shorted to ground. This is wrong in *every* way! It doesn't even work to configure external devices before DMAC (which would be wrong albeit semi-logical). The way this should be setup is /CONFIGOUT (from DMAC) is connected to the pin on the diagnostic port marked /CONFIGIN and /CONFIGIN (on DMAC) is connected to GND. /CONFIGOUT (on CN12) is then left floating as there are no more devices to configure.
    
 
 ## Differences from Original
@@ -81,7 +85,7 @@ There are some differences noted between the schematics/Service Manual and the a
 V1 is intended to be a functional "like for like" copy of a 2.2.1 board. It is not a perfect 1:1, locations have been made as close as possible but may differ slightly. I cannot guarantee anything that connects between multiple items will fit (eg the ROM developer board).
 There are however three changes that have been made. 
 1) A 5 pin connector by T1. This is because T1 is unobtainable and highly unlikely to be able to be removed from an original board. This connector therefore is to supply VF1, VPP and VF2 from +5VD using a separate board.
-2) The CONFIGIN/CONFIGOUT is fixed to the diagnostic socket.
+2) The CONFIGIN/CONFIGOUT is fixed to the diagnostic socket. Pin 6 is "/CONFIGIN" for the next device and connected to /CONFIGOUT of DMAC. DMAC has /CONFIGIN connected to GND so that it is the first device configured. /CONFIGOUT on the diagnostic socket is left floating. In case there is something reliant on the previous behaviour there are two new solder jumpers that let you revert to the incorrect behaviour! 
 3) The Kickstart ROM is changed to a 42 pin. Same connectivity as A500 rev 8. 
 
 All of the non-Commodore/Amiga unique parts have been sourced as far as they can. 
@@ -90,6 +94,29 @@ Unfortunately as U62 & U75 are unique to the CDTV this isn't a project that is o
 
 The routing started the same as the original however it got to a point where it just wasn't possible without removing all the components from the board to trace tracks and became increasingly difficult. 
 Routing is therefore "kind of" like the original where it can be up to a certain point beyond which I treated it as a new board and just routed it as I would (based on the same rules, top layer horizontal, bottom vertical). 
+
+### Jumpers
+
+All except unless mentioned are solder jumpers. 
+
+JP1) Normally Open. Connects /EXRAM to ground.
+JP2) N/A
+JP3) Double Jumper. Normally connects /INT2 to DMAC. Can instead connect /INT6.
+JP4) Double Jumper. Normally connects A19 (pin 59) from Agnus to A19. Can instead connect A23.
+JP5) Normally closed. Selects 
+JP6) Double Jumper. Normally connects BRW to pin 21 of a 24 pin U78 but can connect A12 to pin 23 (same physical pin, just number shifted) if a 28 pin SRAM chip is fitted. 
+JP7) Double Jumper. Normally connects BRW to pin 21 of a 24 pin U79 but can connect A12 to pin 23 (same physical pin, just number shifted) if a 28 pin SRAM chip is fitted.
+JP8) Double jumper. Connects NTSC or PAL crystal to Agnes. 
+JP9) Normally open on PAL machines. Selects NTSC/PAL power for PAL crystal.
+JP10) Normally closed on PAL machines. Selects NTSC/PAL for NTSC crystal.
+JP11) Normally open on PAL machines. Selects NTSC/PAL for Agnes. 
+JP12) N/A
+JP13) Normally closed. Connects C16M from the drive to the DAC. 
+JP14) Double jumper. Both normally closed. Connects audio to the headphone socket.
+JP15) Double pin jumper. Direction doesn't matter. Connects /CSCD and enables the CDTV functionality. 
+JP15/JP18) Normally closed. Connects INITB on U17 to U37. 
+JP16) Normally open. Connects A18 to pin 39 of CN13
+JP17) Normally open. Connects A19 to pin 40 of CN13
 
 ## Commodore chips required.
 
