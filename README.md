@@ -15,7 +15,7 @@ There are a number of "known" revisions of the CDTV, this is based off the 2.2.1
 ## Status
 
 Alpha. :)
-Board is "complete", all components, everything routed and currently in validation phase. I'm slowly validating every chip and component on the board. Roughly 70% through validation of every IC. 
+Board is "complete", all components, everything routed and currently in validation phase. I'm slowly validating every chip and component on the board. Roughly 70% through validation of every IC. While this is a slow and tedious process I'm still finding "issues" between the schematics and real board!
 
 ![image](https://github.com/user-attachments/assets/502022f9-04ee-4fac-bb75-5acfeada67f8)
 
