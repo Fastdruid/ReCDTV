@@ -111,7 +111,7 @@ module cdtv (
     U81 (quad 2-input NAND gate) 4/4 gates (all gates replaced)
     */
     assign EMC = ~(A19 | CSMC_n); // Generate EMC - U43
-    assign ECD = ~(A19 | CSCD_n); // Generate ECD - U43
+     assign ECD = ~(A19 | A18 | CSCD_n); // Generate ECD - U43 - Note this matches the actual board not the schematics!
     assign AUDS_n = ~{UDS_n | AS_n); // U23
     assign ALDS_n = ~{LDS_n | AS_n); // U23
     assign CSMCEN_n = ~(EMC & AUDS); // U81                     
