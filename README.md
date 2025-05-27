@@ -72,6 +72,7 @@ There are some differences noted between the schematics/Service Manual and the a
 31) RP27 is labeled in different places with Pin 1 to VCC and pin 1 to +5VD. Its +5VD.
 32) Schematic shows a 6525B while the only chip I've seen fitted in any pictures is a 6525A.
 33) Pin 15 and pin 16 on CN12 are swapped. Pin 15 is /INT6, Pin 16 is A5
+34) Pin 9 of U43 goes to A18 instead of GND. 
 
 
 ## Known issues
