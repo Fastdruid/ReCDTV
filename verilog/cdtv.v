@@ -102,7 +102,7 @@ module cdtv (
     assign CSMC_n = ~(A23 & A22 & A21 & ~A20);  // Generate CMSC_n, Range 0xE00000 to 0xEFFFFF - for Memory Card.
     assign CSCD_n = ~(A23 & A22 & A21 & A20);  // Genarate CSCD_n, Range 0xF00000 to 0xFFFFFF - for CD
     assign CSNV_n = ~((A23 & A22 & ~A21 A20 ) & A19 & A18 & ~A17 & ~A16 & A15 & ~A14); // Generate CMNV_n, Range 0xDC8000 to 0xDCBFFF - for NVRAM
-    assign CSRV_n = ~((A23 & A22 & ~A21 A20 ) & A19 & A18 & ~A17 & ~A16 & ~A15);       // Generate CMRV_n, Range 0xDC0000 to 0xDC7FFF - for RTC
+    assign CSRC_n = ~((A23 & A22 & ~A21 A20 ) & A19 & A18 & ~A17 & ~A16 & ~A15);       // Generate CMRC_n, Range 0xDC0000 to 0xDC7FFF - for RTC
     
     /* 
     This replaces
