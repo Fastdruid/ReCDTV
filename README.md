@@ -68,7 +68,8 @@ There are some differences noted between the schematics/Service Manual and the a
 27) On page 10 U32 is shown (and listed in the spare parts list) as a 3MHz 6525B. On all CDTV's seen however a 2MHz 6525A is used.
 28) On U60 pins 3 & 7 are swapped (*INCD and *CD/TV)
 29) RP27 is labeled in different places with Pin 1 to VCC and pin 1 to +5VD. Its +5VD.
-30) Schematic shows a 6525B while the only chip I've seen fitted in any pictures is a 6525A. 
+30) Schematic shows a 6525B while the only chip I've seen fitted in any pictures is a 6525A.
+31) Pin 15 and pin 16 on CN12 are swapped. Pin 15 is /INT6, Pin 16 is A5
 
 ## Known issues
 
