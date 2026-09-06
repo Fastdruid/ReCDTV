@@ -120,20 +120,20 @@ https://www.studio-nibble.com/cd/index.php?title=Pre-emphasis_(release_list)
 
 ## Audio
 
-The audio from the drive is I2S, somewhat curiously its actually 16bit in 24 bit frames. This is a bit of an awkward layout as more modern stuff does 16 bit in 32 bit frames. 
+The audio from the drive is EIAJ, close to I2S but L and R are reversed and its actually 16bit in 24 bit frames. This is a bit of an awkward layout as more modern stuff does 16 bit in 32 bit frames. 
 
 ### 14 DATA - Pin 16 on A570
- 16 bit Digital Audio Data using I²S
+ 16 bit Digital Audio Data using EIAJ
  Feeds into LC7883M D/A Converter pin 6 from the M50422P CD Digital DSP pin 67. Also connected to LC8951
  Bit serial from MSB
 ### 15 LRCLK - Pin 17 on A570
- Digital Audio Data using I²S
+ Digital Audio Data using EIAJ
  Feeds into LC7883M D/A Converter pin 7  
  LR CLK (Left/Right?)    
  LRCK = "H" CH1    
  LRCK = "L" CH2    
 ### 16 BCLK - Pin 19 on A570
- 24 bit Digital Audio Data Bit Clock using I²S
+ 24 bit Digital Audio Data Bit Clock using EIAJ
  Feeds into LC7883M D/A Converter pin 5  
  Bit CLK   
 ### 17 MUTE (N/C) - Pin 19 A570 (CDMUTE)
